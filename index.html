@@ -19,6 +19,7 @@
   <!-- Devicon - tech stack icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <style>
+    /* ─── Reset & Box Sizing ─── */
     *,
     *::before,
     *::after {
@@ -27,42 +28,158 @@
       padding: 0;
     }
 
+    /* ─── Variabel Desain: Tema Korporat Profesional (Light Mode) ─── */
     :root {
-      --bg: #080c14;
-      --surface: rgba(255, 255, 255, 0.04);
-      --border: rgba(255, 255, 255, 0.08);
-      --accent: #6366f1;
-      --accent2: #8b5cf6;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --card-bg: rgba(15, 20, 35, 0.7);
+      --bg: #f8fafc;
+      --surface: #f1f5f9;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent2: #1e3a8a;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card-bg: #ffffff;
+      --nav-bg: rgba(255, 255, 255, 0.92);
+      --card-border: #e2e8f0;
+      --card-hover-border: #2563eb;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.05);
+      --shadow-hover: 0 8px 28px rgba(37, 99, 235, 0.14), 0 2px 8px rgba(37, 99, 235, 0.08);
     }
 
+    /* ─── Variabel Desain: Dark Mode Profesional ─── */
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #3b82f6;
+      --accent2: #60a5fa;
+      --accent-hover: #2563eb;
+      --accent-light: rgba(59, 130, 246, 0.12);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --card-bg: #1e293b;
+      --nav-bg: rgba(15, 23, 42, 0.92);
+      --card-border: rgba(255, 255, 255, 0.07);
+      --card-hover-border: rgba(59, 130, 246, 0.6);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 28px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(59, 130, 246, 0.12);
+    }
+
+    /* ─── Pola Background: Dark Mode ─── */
+    [data-theme="dark"] body::before {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+      opacity: 0.5;
+    }
+
+    /* ─── Tag Teknologi: Dark Mode ─── */
+    [data-theme="dark"] .tag-blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+    [data-theme="dark"] .tag-pink {
+      background: rgba(236, 72, 153, 0.12);
+      color: #f9a8d4;
+      border-color: rgba(236, 72, 153, 0.25);
+    }
+    [data-theme="dark"] .tag-green {
+      background: rgba(34, 197, 94, 0.12);
+      color: #86efac;
+      border-color: rgba(34, 197, 94, 0.25);
+    }
+    [data-theme="dark"] .tag-cyan {
+      background: rgba(6, 182, 212, 0.12);
+      color: #67e8f9;
+      border-color: rgba(6, 182, 212, 0.25);
+    }
+
+    /* ─── Ikon Kontak: Dark Mode ─── */
+    [data-theme="dark"] .icon-github { background: rgba(240,246,252,0.08); }
+    [data-theme="dark"] .icon-ig     { background: rgba(225,48,108,0.1); }
+    [data-theme="dark"] .icon-yt     { background: rgba(255,0,0,0.1); }
+    [data-theme="dark"] .icon-email  { background: rgba(59,130,246,0.12); }
+
+    /* ─── Lencana Status: Dark Mode ─── */
+    [data-theme="dark"] .hero-badge {
+      background: rgba(21, 128, 61, 0.15);
+      border-color: rgba(34, 197, 94, 0.25);
+      color: #86efac;
+    }
+    [data-theme="dark"] .hero-badge::before { color: #4ade80; }
+
+    /* ─── Tombol Theme Toggle ─── */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: rotate(15deg);
+    }
+
+    /* ─── Transisi Mulus saat Ganti Tema ─── */
+    html {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body, nav, .project-card, .stat-card, .contact-card, .skill-badge, footer {
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ─── Perilaku Scroll Halus ─── */
     html {
       scroll-behavior: smooth;
     }
 
+    /* ─── Gaya Dasar Halaman ─── */
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
     }
 
-    /* ─── Animated background ─── */
+    /* ─── Latar Belakang: Pola titik abu-abu sangat halus ─── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 90%, rgba(139, 92, 246, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 40% at 60% 40%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+      background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.35;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* ─── Navbar ─── */
+    /* ─── Partikel: Disembunyikan agar tampilan tetap bersih ─── */
+    #particles {
+      display: none;
+    }
+
+    .particle {
+      display: none;
+    }
+
+    /* ─── Navigasi ─── */
     nav {
       position: sticky;
       top: 0;
@@ -70,25 +187,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 5%;
-      background: rgba(8, 12, 20, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      padding: 0.875rem 5%;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
       transition: background 0.3s;
     }
 
+    /* ─── Logo Navigasi ─── */
     .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #6366f1, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
       z-index: 101;
     }
 
-    /* Hamburger button */
+    /* ─── Tombol Hamburger (Mobile) ─── */
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -106,7 +223,7 @@
 
     .nav-toggle span {
       display: block;
-      width: 24px;
+      width: 22px;
       height: 2px;
       background: var(--text);
       border-radius: 2px;
@@ -125,6 +242,7 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
+    /* ─── Daftar Tautan Navigasi ─── */
     .nav-links {
       display: flex;
       gap: 2.5rem;
@@ -134,10 +252,11 @@
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
       transition: color 0.2s;
       position: relative;
+      letter-spacing: 0.01em;
     }
 
     .nav-links a::after {
@@ -146,27 +265,31 @@
       bottom: -4px;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 1.5px;
       background: var(--accent);
       border-radius: 2px;
       transform: scaleX(0);
-      transition: transform 0.25s;
+      transition: transform 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: var(--text);
+      color: var(--accent2);
     }
 
     .nav-links a:hover::after {
       transform: scaleX(1);
     }
 
+    /* ─── Tombol CTA Navigasi ─── */
     .nav-cta {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: var(--accent);
       color: #fff !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
       font-weight: 600 !important;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s !important;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
     }
 
     .nav-cta::after {
@@ -174,11 +297,13 @@
     }
 
     .nav-cta:hover {
-      opacity: 0.9;
+      background: var(--accent-hover) !important;
+      color: #fff !important;
       transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
     }
 
-    /* ─── Hero ─── */
+    /* ─── Bagian Hero ─── */
     #home {
       position: relative;
       min-height: 100vh;
@@ -191,6 +316,7 @@
       z-index: 1;
     }
 
+    /* ─── Foto Profil Hero ─── */
     .hero-avatar-wrapper {
       position: relative;
       margin-bottom: 2rem;
@@ -199,85 +325,87 @@
     .hero-avatar-wrapper::before {
       content: '';
       position: absolute;
-      inset: -6px;
+      inset: -3px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
-      animation: spin 4s linear infinite;
+      background: linear-gradient(135deg, var(--accent), #60a5fa);
       z-index: -1;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
     .hero-avatar {
-      width: 140px;
-      height: 140px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 4px solid var(--bg);
+      border: 3px solid var(--bg);
       object-fit: cover;
       display: block;
+      box-shadow: var(--shadow-md);
     }
 
+    /* ─── Lencana Status Ketersediaan (Profesional) ─── */
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      color: #a78bfa;
-      font-size: 0.8rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 0.75rem;
       font-weight: 600;
       padding: 0.35rem 0.9rem;
-      border-radius: 50px;
+      border-radius: 6px;
       margin-bottom: 1.5rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .hero-badge::before {
       content: '●';
-      font-size: 0.5rem;
-      color: #4ade80;
-      animation: blink 1.5s infinite;
+      font-size: 0.45rem;
+      color: #16a34a;
+      animation: blink 2s ease-in-out infinite;
     }
 
+    /* ─── Animasi Kedip Indikator Status ─── */
     @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: 0.3
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
     }
 
+    /* ─── Nama Utama Hero ─── */
     .hero-name {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 900;
+      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      font-weight: 800;
       letter-spacing: -2px;
       line-height: 1.05;
       margin-bottom: 1rem;
+      color: var(--text);
     }
 
+    /* ─── Aksen Nama dengan Gradasi Biru Korporat ─── */
     .hero-name span {
-      background: linear-gradient(135deg, #6366f1, #a78bfa, #38bdf8);
+      background: linear-gradient(135deg, var(--accent), #1e40af);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
+    /* ─── Animasi Glow: Dinonaktifkan ─── */
+    @keyframes glow {
+      0%, 50%, 100% { text-shadow: none; }
+    }
+
+    /* ─── Subjudul Hero ─── */
     .hero-sub {
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 400;
       max-width: 520px;
-      line-height: 1.7;
+      line-height: 1.8;
       margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
     }
 
+    /* ─── Grup Tombol Hero ─── */
     .hero-btns {
       display: flex;
       gap: 1rem;
@@ -285,40 +413,47 @@
       justify-content: center;
     }
 
+    /* ─── Tombol Utama (Primary) ─── */
     .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      background: var(--accent);
       color: #fff;
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
-      font-weight: 700;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+      letter-spacing: 0.02em;
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
     }
 
+    /* ─── Tombol Sekunder (Outline) ─── */
     .btn-secondary {
       background: transparent;
       color: var(--text);
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      font-size: 0.95rem;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, background 0.2s;
+      font-size: 0.9rem;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
     }
 
     .btn-secondary:hover {
       border-color: var(--accent);
-      background: rgba(99, 102, 241, 0.08);
+      background: var(--accent-light);
+      color: var(--accent2);
     }
 
+    /* ─── Indikator Scroll ke Bawah ─── */
     .hero-scroll {
       position: absolute;
       bottom: 2.5rem;
@@ -330,102 +465,34 @@
       gap: 0.4rem;
       color: var(--muted);
       font-size: 0.75rem;
-      animation: float 2s ease-in-out infinite;
+      animation: float 2.5s ease-in-out infinite;
+      opacity: 0.5;
     }
 
+    /* ─── Animasi Melayang Indikator Scroll ─── */
     @keyframes float {
-
-      0%,
-      100% {
-        transform: translateX(-50%) translateY(0)
-      }
-
-      50% {
-        transform: translateX(-50%) translateY(-6px)
-      }
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-6px); }
     }
 
-    /* ─── Particles ─── */
-    #particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0;
-      animation: rise linear infinite;
-      will-change: transform;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(100vh) scale(0);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 0.5;
-      }
-
-      90% {
-        opacity: 0.2;
-      }
-
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
-    }
-
-    /* ─── Glow text pulse ─── */
-    @keyframes glow {
-
-      0%,
-      100% {
-        text-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
-      }
-
-      50% {
-        text-shadow: 0 0 40px rgba(99, 102, 241, 0.7), 0 0 80px rgba(139, 92, 246, 0.4);
-      }
-    }
-
-    .hero-name span {
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    /* ─── Typed cursor ─── */
+    /* ─── Kursor Mengetik (Typed.js) ─── */
     .typed-cursor {
       color: var(--accent);
       animation: blink-cursor 0.8s step-end infinite;
     }
 
     @keyframes blink-cursor {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: 0
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
-    /* ─── Glowing card on hover ─── */
+    /* ─── Efek Hover Kartu Proyek: Elevasi Bayangan Formal ─── */
     .project-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 20px;
-      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(99, 102, 241, 0.12) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s;
+      border-radius: 10px;
+      background: transparent;
       pointer-events: none;
     }
 
@@ -434,10 +501,10 @@
     }
 
     .project-card:hover::before {
-      opacity: 1;
+      opacity: 0;
     }
 
-    /* ─── Contact cards enhanced ─── */
+    /* ─── Kartu Kontak ─── */
     .contact-card {
       position: relative;
       overflow: hidden;
@@ -446,9 +513,9 @@
     .contact-card::after {
       content: '';
       position: absolute;
-      inset: -1px;
-      border-radius: 17px;
-      background: linear-gradient(135deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+      inset: 0;
+      border-radius: 10px;
+      background: transparent;
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -457,53 +524,55 @@
       opacity: 1;
     }
 
+    /* ─── Ikon Kontak ─── */
     .contact-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 0.25rem;
     }
 
     .icon-github {
-      background: rgba(240, 246, 252, 0.1);
+      background: #f6f8fa;
     }
 
     .icon-ig {
-      background: rgba(225, 48, 108, 0.12);
+      background: #fff0f5;
     }
 
     .icon-yt {
-      background: rgba(255, 0, 0, 0.12);
+      background: #fff5f5;
     }
 
     .icon-email {
-      background: rgba(99, 102, 241, 0.15);
+      background: var(--accent-light);
     }
 
-    /* ─── Section divider glow ─── */
+    /* ─── Garis Pemisah Bagian (Divider) ─── */
     .divider-glow {
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #6366f1, #a78bfa, transparent);
+      width: 40px;
+      height: 2.5px;
+      background: var(--accent);
       border-radius: 2px;
       margin: 0.75rem 0 1.5rem;
+      opacity: 0.6;
     }
 
     .projects-header .divider-glow {
       margin: 0.75rem auto 1.5rem;
     }
 
-    /* ─── Hero typing role ─── */
+    /* ─── Kolom Teks Peran yang Diketik ─── */
     #typed-role {
       min-width: 1ch;
       display: inline-block;
     }
 
-    /* ─── Section base ─── */
+    /* ─── Bagian Dasar ─── */
     section {
       position: relative;
       z-index: 1;
@@ -515,31 +584,36 @@
       padding: 6rem 1.5rem;
     }
 
+    /* ─── Label Bagian (Eyebrow Text) ─── */
     .section-label {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
 
+    /* ─── Judul Utama Bagian ─── */
     .section-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -0.75px;
       margin-bottom: 1rem;
+      color: var(--text);
+      line-height: 1.2;
     }
 
+    /* ─── Deskripsi Bagian ─── */
     .section-desc {
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       max-width: 520px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    /* ─── About ─── */
+    /* ─── Bagian Tentang Saya ─── */
     #about .section-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -555,9 +629,11 @@
 
     .about-info p {
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 1.85;
+      font-size: 0.95rem;
     }
 
+    /* ─── Kartu Statistik ─── */
     .about-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -566,34 +642,37 @@
     }
 
     .stat-card {
-      background: rgba(15, 20, 35, 0.85);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
       padding: 1.2rem 1rem;
       text-align: center;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-sm);
     }
 
     .stat-card:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
+    /* ─── Angka Statistik ─── */
     .stat-number {
       font-size: 1.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #6366f1, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent);
     }
 
     .stat-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--muted);
-      margin-top: 0.25rem;
+      margin-top: 0.3rem;
+      letter-spacing: 0.02em;
+      font-weight: 500;
     }
 
-    /* Skills icon grid */
+    /* ─── Grid Keterampilan (Skills) ─── */
     .skills-grid {
       display: flex;
       flex-direction: column;
@@ -607,6 +686,7 @@
       margin-top: 0.25rem;
     }
 
+    /* ─── Lencana Keterampilan ─── */
     .skill-badge {
       display: flex;
       flex-direction: column;
@@ -614,17 +694,18 @@
       justify-content: center;
       gap: 0.6rem;
       padding: 1.2rem 0.5rem;
-      border-radius: 16px;
-      background: rgba(15, 20, 35, 0.85);
-      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       cursor: default;
+      box-shadow: var(--shadow-sm);
     }
 
     .skill-badge:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
     .skill-badge i,
@@ -640,16 +721,17 @@
     }
 
     .skill-badge span {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 600;
       color: var(--muted);
       text-align: center;
       line-height: 1.2;
+      letter-spacing: 0.02em;
     }
 
-    /* ─── Projects ─── */
+    /* ─── Bagian Proyek ─── */
     #projects {
-      background: rgba(255, 255, 255, 0.015);
+      background: var(--surface);
     }
 
     .projects-header {
@@ -664,23 +746,26 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
+    /* ─── Kartu Proyek ─── */
     .project-card {
-      background: rgba(15, 20, 35, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
       overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-sm);
     }
 
     .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+      border-color: var(--card-hover-border);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
     }
 
+    /* ─── Header Visual Kartu Proyek ─── */
     .project-thumb {
       width: 100%;
       height: 180px;
@@ -692,42 +777,47 @@
       overflow: hidden;
     }
 
+    /* ─── Warna Thumb: Biru Korporat Profesional ─── */
     .thumb-laravel {
-      background: linear-gradient(135deg, #1e0a0a, #3b0a0a);
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
     }
 
     .thumb-ux {
-      background: linear-gradient(135deg, #0a0a2e, #1a0a3e);
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
     }
 
     .thumb-excel {
-      background: linear-gradient(135deg, #0a1e0a, #0a3b1a);
+      background: linear-gradient(135deg, #16a34a, #15803d);
     }
 
     .project-thumb::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, var(--card-bg) 0%, transparent 60%);
+      background: linear-gradient(to top, var(--card-bg) 0%, transparent 55%);
     }
 
+    /* ─── Isi Kartu Proyek ─── */
     .project-body {
       padding: 1.5rem;
     }
 
     .project-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
     }
 
     .project-desc {
       color: var(--muted);
       font-size: 0.875rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
     }
 
+    /* ─── Tag Teknologi ─── */
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -736,52 +826,56 @@
     }
 
     .tag {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 0.25rem 0.65rem;
-      border-radius: 50px;
+      padding: 0.22rem 0.6rem;
+      border-radius: 5px;
+      letter-spacing: 0.03em;
     }
 
     .tag-blue {
-      background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
-      border: 1px solid rgba(99, 102, 241, 0.3);
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
     }
 
     .tag-pink {
-      background: rgba(236, 72, 153, 0.12);
-      color: #f9a8d4;
-      border: 1px solid rgba(236, 72, 153, 0.25);
+      background: #fdf2f8;
+      color: #9d174d;
+      border: 1px solid #fbcfe8;
     }
 
     .tag-green {
-      background: rgba(34, 197, 94, 0.12);
-      color: #86efac;
-      border: 1px solid rgba(34, 197, 94, 0.25);
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
     }
 
     .tag-cyan {
-      background: rgba(6, 182, 212, 0.12);
-      color: #67e8f9;
-      border: 1px solid rgba(6, 182, 212, 0.25);
+      background: #ecfeff;
+      color: #155e75;
+      border: 1px solid #a5f3fc;
     }
 
+    /* ─── Tautan Proyek ─── */
     .project-link {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       color: var(--accent);
       text-decoration: none;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      transition: gap 0.2s;
+      transition: gap 0.2s, color 0.2s;
+      letter-spacing: 0.01em;
     }
 
     .project-link:hover {
-      gap: 0.7rem;
+      gap: 0.65rem;
+      color: var(--accent2);
     }
 
-    /* ─── Contact ─── */
+    /* ─── Bagian Kontak ─── */
     #contact .section-inner {
       text-align: center;
     }
@@ -798,10 +892,11 @@
       margin-bottom: 2.5rem;
     }
 
+    /* ─── Kartu Kontak ─── */
     .contact-card {
-      background: rgba(15, 20, 35, 0.88);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
       padding: 1.5rem 1rem;
       display: flex;
       flex-direction: column;
@@ -809,26 +904,29 @@
       gap: 0.75rem;
       text-decoration: none;
       color: var(--text);
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-sm);
     }
 
     .contact-card:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
     .contact-card i {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .contact-card span {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--muted);
     }
 
     .contact-card strong {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 600;
+      color: var(--text);
     }
 
     /* ─── Footer ─── */
@@ -838,6 +936,7 @@
       border-top: 1px solid var(--border);
       padding: 2rem 1.5rem;
       text-align: center;
+      background: var(--card-bg);
     }
 
     footer p {
@@ -847,11 +946,10 @@
 
     footer span {
       color: var(--accent);
+      font-weight: 600;
     }
 
-    /* ─── Responsive ─── */
-
-    /* Tablet */
+    /* ─── Responsif: Tablet (lebar maks 900px) ─── */
     @media (max-width: 900px) {
       #about .section-inner {
         grid-template-columns: 1fr;
@@ -859,14 +957,15 @@
       }
     }
 
-    /* Mobile */
+    /* ─── Responsif: Ponsel (lebar maks 768px) ─── */
     @media (max-width: 768px) {
 
-      /* Hamburger menu */
+      /* Tampilkan tombol hamburger */
       .nav-toggle {
         display: flex;
       }
 
+      /* Menu navigasi mobile: geser dari atas */
       .nav-links {
         display: flex;
         flex-direction: column;
@@ -875,11 +974,12 @@
         top: 0;
         left: 0;
         right: 0;
-        background: rgba(8, 12, 20, 0.98);
+        background: rgba(255, 255, 255, 0.98);
         padding: 80px 2rem 2rem;
         transform: translateY(-110%);
         transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
         z-index: 99;
       }
 
@@ -890,8 +990,9 @@
       .nav-links li a {
         display: block;
         padding: 1rem 0;
-        font-size: 1.1rem;
+        font-size: 1rem;
         border-bottom: 1px solid var(--border);
+        color: var(--text);
       }
 
       .nav-links li:last-child a {
@@ -911,8 +1012,8 @@
       }
 
       .hero-avatar {
-        width: 110px;
-        height: 110px;
+        width: 105px;
+        height: 105px;
       }
 
       .hero-name {
@@ -937,12 +1038,12 @@
         text-align: center;
       }
 
-      /* Section spacing */
+      /* Jarak dalam bagian */
       .section-inner {
         padding: 4rem 1.2rem;
       }
 
-      /* About stats - 3 col on mobile too */
+      /* Statistik: 3 kolom di ponsel */
       .about-stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.6rem;
@@ -956,7 +1057,7 @@
         font-size: 1.4rem;
       }
 
-      /* Projects - single column */
+      /* Proyek: 1 kolom di ponsel */
       .projects-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
@@ -967,7 +1068,7 @@
         font-size: 2.8rem;
       }
 
-      /* Contact grid - 2 col */
+      /* Kontak: 2 kolom */
       .contact-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -978,7 +1079,7 @@
       }
     }
 
-    /* Small phones */
+    /* ─── Responsif: Ponsel Kecil (lebar maks 380px) ─── */
     @media (max-width: 380px) {
       .about-stats {
         grid-template-columns: repeat(3, 1fr);
@@ -998,9 +1099,8 @@
       }
     }
 
-    /* ─── Reduce motion for low-end devices ─── */
+    /* ─── Aksesibilitas: Kurangi Gerakan Animasi ─── */
     @media (prefers-reduced-motion: reduce) {
-
       *,
       *::before,
       *::after {
@@ -1022,11 +1122,11 @@
       }
     }
 
-    /* ─── Fade-in animation ─── */
+    /* ─── Animasi Fade-In saat Scroll ─── */
     .fade-up {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
 
     .fade-up.visible {
@@ -1034,9 +1134,8 @@
       transform: translateY(0);
     }
 
-    /* ─── Touch device: disable hover transforms to avoid sticky states ─── */
+    /* ─── Perangkat Sentuh: Nonaktifkan Transform Hover ─── */
     @media (hover: none) {
-
       .project-card:hover,
       .stat-card:hover,
       .contact-card:hover {
@@ -1051,9 +1150,15 @@
   <!-- Navbar -->
   <nav id="navbar">
     <div class="nav-logo">Alfath Noorislami Herawansyah</div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <!-- Tombol Toggle Tema Gelap/Terang -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Ganti tema">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="#home" class="nav-close-link">Home</a></li>
       <li><a href="#about" class="nav-close-link">About</a></li>
@@ -1090,7 +1195,9 @@
         <div class="divider-glow"></div>
         <p>I'm a 2nd-year Information Systems student at Politeknik Negeri Subang (POLSUB). I enjoy crafting intuitive
           user interfaces, building web applications, and solving real-world problems through technology.</p>
-        <p>I am deeply passionate about creating impactful digital experiences and continuously expanding my skill set to build innovative solutions. My focus is on leveraging technical and creative abilities to deliver high-quality, user-centric products.</p>
+        <p>I am deeply passionate about creating impactful digital experiences and continuously expanding my skill set
+          to build innovative solutions. My focus is on leveraging technical and creative abilities to deliver
+          high-quality, user-centric products.</p>
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-number">3+</div>
@@ -1178,6 +1285,13 @@
             <span>Excel VBA</span>
           </div>
 
+          <div class="skill-badge">
+            <div style="width:42px;height:42px;background:#ea4b71;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+              <img src="https://cdn.simpleicons.org/n8n/ffffff" alt="n8n" width="28" height="28" />
+            </div>
+            <span>n8n</span>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1256,10 +1370,11 @@
     <div class="section-inner">
       <span class="section-label">Contact</span>
       <h2 class="section-title fade-up">Let's work together</h2>
-      <p class="section-desc fade-up">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the channels below!</p>
+      <p class="section-desc fade-up">I'm always open to discussing new projects, creative ideas, or opportunities to be
+        part of your visions. Feel free to reach out through any of the channels below!</p>
       <div class="contact-grid fade-up">
         <a href="https://github.com/AlfathNH" class="contact-card" target="_blank" id="contact-github">
-          <div class="contact-icon icon-github"><i class="fab fa-github" style="color:#f0f6fc"></i></div>
+          <div class="contact-icon icon-github"><i class="fab fa-github" style="color:#24292f"></i></div>
           <strong>GitHub</strong>
           <span>AlfathNH</span>
         </a>
@@ -1274,7 +1389,7 @@
           <span>@alfathnoor11</span>
         </a>
         <a href="mailto:alfathnoor11@gmail.com" class="contact-card" id="contact-email">
-          <div class="contact-icon icon-email"><i class="fas fa-envelope" style="color:#818cf8"></i></div>
+          <div class="contact-icon icon-email"><i class="fas fa-envelope" style="color:#2563eb"></i></div>
           <strong>Email</strong>
           <span>alfathnoor11@gmail.com</span>
         </a>
@@ -1291,6 +1406,42 @@
   </footer>
 
   <script>
+    // ── Dark / Light Mode Toggle
+    (function () {
+      const html = document.documentElement;
+      const btn = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+
+      // Terapkan tema awal dari localStorage atau preferensi sistem
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? saved === 'dark' : prefersDark;
+
+      function applyTheme(dark) {
+        if (dark) {
+          html.setAttribute('data-theme', 'dark');
+          icon.className = 'fa-solid fa-sun';
+          btn.title = 'Beralih ke Mode Terang';
+        } else {
+          html.removeAttribute('data-theme');
+          icon.className = 'fa-solid fa-moon';
+          btn.title = 'Beralih ke Mode Gelap';
+        }
+        // Perbarui warna ikon GitHub sesuai tema
+        const ghIcon = document.querySelector('#contact-github .fa-github');
+        if (ghIcon) ghIcon.style.color = dark ? '#e2e8f0' : '#24292f';
+      }
+
+      applyTheme(isDark);
+
+      btn.addEventListener('click', function () {
+        const currentlyDark = html.getAttribute('data-theme') === 'dark';
+        const newDark = !currentlyDark;
+        localStorage.setItem('theme', newDark ? 'dark' : 'light');
+        applyTheme(newDark);
+      });
+    })();
+
     // ── Hamburger menu
     (function () {
       const toggle = document.getElementById('nav-toggle');
