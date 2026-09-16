@@ -1,0 +1,179 @@
+{
+  "owner": "Alfath Noorislami Herawansyah",
+  "short_name": "Alfath",
+  "role": "Information Systems Student & Web Developer",
+  "institution": "Politeknik Negeri Subang (POLSUB)",
+  "location": "Subang, West Java, Indonesia",
+  "availability": "Open to freelance, internship, and part-time opportunities",
+  "contact": {
+    "email": "alfathnoor11@gmail.com",
+    "github": "https://github.com/AlfathNH",
+    "instagram": "https://instagram.com/fathz_19",
+    "youtube": "https://youtube.com/@alfathnoor11"
+  },
+  "bio": "I'm a 2nd-year Information Systems student at Politeknik Negeri Subang (POLSUB). I enjoy crafting intuitive user interfaces, building web applications, and solving real-world problems through technology. I am deeply passionate about creating impactful digital experiences.",
+  "education": [
+    {
+      "institution": "Politeknik Negeri Subang (POLSUB)",
+      "degree": "D4 Sistem Informasi (Information Systems)",
+      "period": "2024 – Present",
+      "status": "Active"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "ostrich-smart-hub",
+      "title": "Ostrich Smart Hub",
+      "description": "Digital ticketing and monitoring system for Ostrich Mini Zoo Subang. Features admin dashboard, visitor management, and financial reporting. Built with Laravel, PHP, and MySQL.",
+      "category": "web",
+      "tech_stack": ["Laravel", "PHP", "MySQL", "Blade"],
+      "github_repo": "AlfathNH/Project-2-Ostrich-Smart-Hub",
+      "github_url": "https://github.com/AlfathNH/Project-2-Ostrich-Smart-Hub",
+      "featured": true,
+      "status": "completed",
+      "highlights": [
+        "Admin dashboard untuk pengelola kebun binatang",
+        "Sistem tiket digital menggantikan tiket kertas",
+        "Laporan keuangan otomatis",
+        "Manajemen pengunjung real-time"
+      ]
+    },
+    {
+      "slug": "vertex-logistics-concept",
+      "title": "Vertex Logistics Concept",
+      "description": "UI/UX concept design for a smart manufacturing gate pass and real-time logistics tracking system. Designed with a modern, clean aesthetic in Figma.",
+      "category": "uiux",
+      "tech_stack": ["Figma", "UI/UX Design"],
+      "github_repo": "AlfathNH/Vertex-Logistics-UIUX-Concept",
+      "github_url": "https://github.com/AlfathNH/Vertex-Logistics-UIUX-Concept",
+      "featured": true,
+      "status": "completed",
+      "highlights": [
+        "Desain gate pass digital untuk manufaktur",
+        "Real-time logistics tracking interface",
+        "Modern dan clean aesthetic",
+        "Prototype interaktif di Figma"
+      ]
+    },
+    {
+      "slug": "pasar-kalijati-system",
+      "title": "Pasar Kalijati System",
+      "description": "Automated market fee management system for Desa Kalijati Timur using Excel VBA & Macros, replacing manual bookkeeping processes with an automated digital system.",
+      "category": "automation",
+      "tech_stack": ["VBA", "Excel", "Macros"],
+      "github_repo": "AlfathNH/Project-1-Sistem-Retribusi-Pasar-Desa-Kalijati-Timur-Berbasis-Excel",
+      "github_url": "https://github.com/AlfathNH/Project-1-Sistem-Retribusi-Pasar-Desa-Kalijati-Timur-Berbasis-Excel",
+      "featured": true,
+      "status": "completed",
+      "highlights": [
+        "Otomasi pencatatan retribusi pasar",
+        "Menggantikan proses manual/buku tulis",
+        "Laporan keuangan otomatis dengan Excel VBA",
+        "Digunakan oleh petugas desa Kalijati Timur"
+      ]
+    },
+    {
+      "slug": "memecam-virtual-camera",
+      "title": "MemeCam Virtual Camera",
+      "description": "Python-based virtual camera app that overlays meme templates in real-time using OpenCV. Integrates with video conferencing tools like Zoom and Google Meet as a virtual camera source.",
+      "category": "ai-python",
+      "tech_stack": ["Python", "OpenCV", "pyvirtualcam", "NumPy"],
+      "github_repo": "AlfathNH/MemeCam",
+      "github_url": "https://github.com/AlfathNH/MemeCam",
+      "featured": true,
+      "status": "completed",
+      "highlights": [
+        "Real-time meme overlay menggunakan OpenCV",
+        "Integrasi sebagai virtual camera di Zoom/Meet",
+        "Pemrosesan video frame-by-frame dengan Python",
+        "Berbagai template meme yang bisa dipilih"
+      ]
+    }
+  ],
+  "skills": {
+    "frontend": {
+      "label": "Frontend",
+      "items": [
+        {"name": "HTML5", "level": "advanced", "icon": "devicon-html5-plain"},
+        {"name": "CSS3", "level": "advanced", "icon": "devicon-css3-plain"},
+        {"name": "JavaScript", "level": "intermediate", "icon": "devicon-javascript-plain"},
+        {"name": "Tailwind CSS", "level": "intermediate", "icon": "devicon-tailwindcss-plain"},
+        {"name": "Alpine.js", "level": "intermediate", "icon": "devicon-alpinejs-plain"}
+      ]
+    },
+    "backend": {
+      "label": "Backend",
+      "items": [
+        {"name": "PHP", "level": "intermediate", "icon": "devicon-php-plain"},
+        {"name": "Laravel", "level": "intermediate", "icon": "devicon-laravel-plain"},
+        {"name": "Python", "level": "intermediate", "icon": "devicon-python-plain"},
+        {"name": "FastAPI", "level": "beginner", "icon": "devicon-fastapi-plain"}
+      ]
+    },
+    "database": {
+      "label": "Database",
+      "items": [
+        {"name": "MySQL", "level": "intermediate", "icon": "devicon-mysql-plain"},
+        {"name": "SQLite", "level": "beginner", "icon": "devicon-sqlite-plain"}
+      ]
+    },
+    "design": {
+      "label": "Design",
+      "items": [
+        {"name": "Figma", "level": "intermediate", "icon": "devicon-figma-plain"},
+        {"name": "UI/UX Design", "level": "intermediate", "icon": null}
+      ]
+    },
+    "tools": {
+      "label": "Tools",
+      "items": [
+        {"name": "Git", "level": "intermediate", "icon": "devicon-git-plain"},
+        {"name": "GitHub", "level": "intermediate", "icon": "devicon-github-plain"},
+        {"name": "n8n", "level": "beginner", "icon": null},
+        {"name": "Excel VBA", "level": "intermediate", "icon": null},
+        {"name": "VS Code", "level": "advanced", "icon": "devicon-vscode-plain"}
+      ]
+    }
+  },
+  "stats": {
+    "projects_built": 4,
+    "years_study": 2,
+    "total_skills": 16,
+    "curiosity": "∞"
+  },
+  "faq": [
+    {
+      "q": "Apa proyek terbaikmu?",
+      "a": "Proyek terbaik saya adalah Ostrich Smart Hub — sistem ticketing digital berbasis Laravel yang saya bangun untuk Kebun Binatang Mini Burung Unta Subang. Sistem ini menggantikan tiket kertas manual dengan dashboard digital untuk manajemen pengunjung dan laporan keuangan."
+    },
+    {
+      "q": "Apakah kamu open to work atau open to freelance?",
+      "a": "Ya! Saya saat ini open to freelance, internship, dan peluang part-time. Silakan hubungi saya melalui email alfathnoor11@gmail.com atau GitHub AlfathNH."
+    },
+    {
+      "q": "Teknologi apa yang kamu kuasai?",
+      "a": "Saya menguasai Laravel (PHP), HTML5, CSS3, JavaScript, Tailwind CSS, Figma, MySQL, Git, Python, dan n8n untuk workflow automation. Untuk skill lengkapnya bisa dilihat di bagian Skills di portfolio ini."
+    },
+    {
+      "q": "Ceritakan tentang MemeCam!",
+      "a": "MemeCam adalah proyek Python yang saya buat untuk menempatkan overlay meme secara real-time menggunakan OpenCV. Hasilnya diintegrasikan sebagai virtual camera yang bisa digunakan di Zoom atau Google Meet. Proyek ini melatih saya dalam image processing dan Python programming."
+    },
+    {
+      "q": "Dimana kamu kuliah?",
+      "a": "Saya kuliah di Politeknik Negeri Subang (POLSUB), mengambil program studi D4 Sistem Informasi. Saya saat ini di tahun ke-2."
+    },
+    {
+      "q": "Bagaimana cara menghubungimu?",
+      "a": "Kamu bisa menghubungi saya melalui: Email: alfathnoor11@gmail.com | GitHub: github.com/AlfathNH | Instagram: @fathz_19 | YouTube: @alfathnoor11"
+    },
+    {
+      "q": "Apakah kamu bisa membuat website?",
+      "a": "Ya, tentu! Saya berpengalaman membuat website dengan Laravel (PHP), Blade templating, Tailwind CSS, dan Alpine.js. Saya juga bisa membuat UI/UX desain dengan Figma sebelum implementasi."
+    },
+    {
+      "q": "Apa yang membuatmu tertarik di dunia IT?",
+      "a": "Saya tertarik pada kemampuan teknologi untuk memecahkan masalah nyata. Ketika saya melihat sistem retribusi pasar di Desa Kalijati yang masih manual, saya termotivasi untuk membuatnya digital dengan Excel VBA. Itu yang mendorong saya untuk terus belajar dan berkarya di bidang IT."
+    }
+  ],
+  "system_instructions": "Kamu adalah AI Assistant Portfolio milik Alfath Noorislami Herawansyah. Tugasmu adalah membantu recruiter, klien, atau pengunjung yang ingin tahu lebih banyak tentang Alfath. Jawab dalam bahasa yang sama dengan pertanyaan user (Indonesia atau Inggris). Jika ditanya hal di luar konteks portfolio Alfath, jawab dengan sopan bahwa kamu hanya bisa membantu tentang informasi Alfath. Selalu rekomendasikan untuk menghubungi Alfath langsung untuk diskusi lebih lanjut."
+}

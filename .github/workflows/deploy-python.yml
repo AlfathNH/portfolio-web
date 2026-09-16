@@ -1,0 +1,40 @@
+name: Deploy Python AI Service
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'python-service/**'
+
+jobs:
+  test:
+    name: Run Python Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        working-directory: python-service
+        run: pip install -r requirements.txt
+
+      - name: Validate FastAPI App Imports
+        working-directory: python-service
+        run: python -c "from main import app; print('✅ FastAPI app imported successfully')"
+        env:
+          GEMINI_API_KEY: test_key
+          GITHUB_USERNAME: AlfathNH
+
+  deploy:
+    name: Deploy to Render
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Trigger Render Deploy
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"

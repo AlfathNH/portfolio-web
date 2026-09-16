@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  # ── Laravel App ──────────────────────────────────────────────────
+  laravel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio_laravel
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      APP_ENV: production
+      APP_KEY: ${APP_KEY}
+      DB_CONNECTION: sqlite
+      AI_SERVICE_URL: http://python-ai:8001
+      CHATBOT_ENABLED: "true"
+    volumes:
+      - ./storage:/var/www/html/storage
+    depends_on:
+      - python-ai
+    networks:
+      - portfolio_net
+
+  # ── Python AI Microservice ─────────────────────────────────────
+  python-ai:
+    build:
+      context: ./python-service
+      dockerfile: Dockerfile
+    container_name: portfolio_ai
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      GITHUB_USERNAME: AlfathNH
+      LARAVEL_APP_URL: http://laravel
+    networks:
+      - portfolio_net
+
+networks:
+  portfolio_net:
+    driver: bridge

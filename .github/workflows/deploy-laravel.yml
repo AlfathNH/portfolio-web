@@ -1,0 +1,64 @@
+name: Deploy Laravel Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'python-service/**'
+      - '*.md'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo, pdo_sqlite, pdo_mysql
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Generate Key
+        run: php artisan key:generate
+
+      - name: Setup SQLite
+        run: touch database/database.sqlite
+
+      - name: Run Migrations
+        run: php artisan migrate --force
+
+      - name: Run Seeder
+        run: php artisan db:seed --force
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install npm Dependencies
+        run: npm ci
+
+      - name: Build Frontend Assets
+        run: npm run build
+
+  deploy:
+    name: Deploy to Railway
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Railway
+        uses: bervProject/railway-deploy@v1.0.0
+        with:
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
+          service: portfolio-laravel
