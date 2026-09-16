@@ -18,11 +18,11 @@ load_dotenv()
 # ── Lifespan ──────────────────────────────────────────────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🚀 Portfolio AI Microservice starting...")
-    print(f"   Gemini API: {'✅ Configured' if os.getenv('GEMINI_API_KEY') else '⚠️  Not configured (fallback mode)'}")
-    print(f"   GitHub Token: {'✅ Set' if os.getenv('GITHUB_TOKEN') else '⚠️  Not set (anonymous access)'}")
+    print("[INIT] Portfolio AI Microservice starting...")
+    print(f"   Gemini API: {'Configured' if os.getenv('GEMINI_API_KEY') else 'Not configured (fallback mode)'}")
+    print(f"   GitHub Token: {'Set' if os.getenv('GITHUB_TOKEN') else 'Not set (anonymous access)'}")
     yield
-    print("🛑 Portfolio AI Microservice shutting down.")
+    print("[SHUTDOWN] Portfolio AI Microservice shutting down.")
 
 
 # ── FastAPI App ───────────────────────────────────────────────────────────────
