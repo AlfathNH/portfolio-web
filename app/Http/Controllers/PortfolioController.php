@@ -28,9 +28,7 @@ class PortfolioController extends Controller
      */
     private function getProjects(): \Illuminate\Database\Eloquent\Collection
     {
-        return Cache::remember('portfolio_projects', 3600, function () {
-            return Project::ordered()->get();
-        });
+        return Project::ordered()->get();
     }
 
     /**
@@ -38,22 +36,20 @@ class PortfolioController extends Controller
      */
     private function getSkills(): array
     {
-        return Cache::remember('portfolio_skills', 3600, function () {
-            $categories = ['frontend', 'backend', 'database', 'design', 'tools'];
-            $skills = [];
+        $categories = ['frontend', 'backend', 'database', 'design', 'tools'];
+        $skills = [];
 
-            foreach ($categories as $cat) {
-                $items = Skill::byCategory($cat)->ordered()->get();
-                if ($items->isNotEmpty()) {
-                    $skills[$cat] = [
-                        'label' => ucfirst($cat),
-                        'items' => $items,
-                    ];
-                }
+        foreach ($categories as $cat) {
+            $items = Skill::byCategory($cat)->ordered()->get();
+            if ($items->isNotEmpty()) {
+                $skills[$cat] = [
+                    'label' => ucfirst($cat),
+                    'items' => $items,
+                ];
             }
+        }
 
-            return $skills;
-        });
+        return $skills;
     }
 
     /**
@@ -61,8 +57,6 @@ class PortfolioController extends Controller
      */
     private function getTimeline(): \Illuminate\Database\Eloquent\Collection
     {
-        return Cache::remember('portfolio_timeline', 3600, function () {
-            return TimelineEntry::ordered()->get();
-        });
+        return TimelineEntry::ordered()->get();
     }
 }
