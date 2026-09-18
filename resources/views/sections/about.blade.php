@@ -72,27 +72,85 @@
             </div>
         </div>
 
-        {{-- Right: Photo / Decorative Panel --}}
-        <div class="relative fade-up flex flex-col gap-4" style="animation-delay: 0.1s;">
+        {{-- Right: Interactive Photo Gallery Panel --}}
+        <div class="relative fade-up flex flex-col gap-4" style="animation-delay: 0.1s;"
+             x-data="{
+                activePhoto: 'almamater',
+                photos: {
+                    almamater: {
+                        src: '{{ asset('images/profile-almamater.jpg') }}',
+                        title: 'Menteri Pubdok BEM',
+                        caption: 'Badan Eksekutif Mahasiswa POLSUB',
+                        badge: '🏛️ Leadership & Campus',
+                        badgeClass: 'bg-primary-600 text-white'
+                    },
+                    project_day: {
+                        src: '{{ asset('images/activity-project-day.jpg') }}',
+                        title: 'Panitia Project Day POLSUB',
+                        caption: 'Dokumentasi & Pameran Inovasi',
+                        badge: '🎯 Event & Community',
+                        badgeClass: 'bg-indigo-600 text-white'
+                    },
+                    casual: {
+                        src: '{{ asset('images/casual-pose.jpg') }}',
+                        title: 'Behind the Scenes',
+                        caption: 'Authentic & Creative Energy',
+                        badge: '⚡ Beyond the Code',
+                        badgeClass: 'bg-amber-600 text-white'
+                    }
+                }
+             }">
 
-            {{-- Avatar Card --}}
+            {{-- Main Interactive Frame --}}
             <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary-600 to-indigo-700 p-1 shadow-glow-md">
-                <div class="rounded-xl overflow-hidden bg-white dark:bg-dark-card">
-                    <img src="{{ config('portfolio.avatar_url') }}"
+                <div class="rounded-xl overflow-hidden bg-white dark:bg-dark-card aspect-square relative group">
+                    <img :src="photos[activePhoto].src"
                          alt="{{ config('portfolio.name') }}"
-                         class="w-full aspect-square object-cover object-top"
+                         class="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-105"
                          loading="lazy">
-                </div>
-                {{-- Floating tag --}}
-                <div class="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-dark-card/95 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/20">
-                    <div class="text-sm font-bold text-slate-900 dark:text-slate-100">{{ config('portfolio.name') }}</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{{ config('portfolio.tagline') }}</div>
+
+                    {{-- Activity Badge on top right --}}
+                    <div class="absolute top-3 right-3 backdrop-blur-md rounded-full px-3 py-1 text-xs font-semibold shadow-md"
+                         :class="photos[activePhoto].badgeClass"
+                         x-text="photos[activePhoto].badge">
+                    </div>
+
+                    {{-- Floating tag on bottom --}}
+                    <div class="absolute bottom-3 left-3 right-3 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md rounded-xl p-3.5 shadow-lg border border-white/20 transition-all">
+                        <div class="text-sm font-bold text-slate-900 dark:text-slate-100" x-text="photos[activePhoto].title"></div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center justify-between">
+                            <span x-text="photos[activePhoto].caption"></span>
+                            <span class="text-[10px] text-primary-600 dark:text-primary-400 font-semibold uppercase tracking-wider">Alfath N. H.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            {{-- Photo Switcher Buttons --}}
+            <div class="grid grid-cols-3 gap-2">
+                <button @click="activePhoto = 'almamater'"
+                        :class="activePhoto === 'almamater' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
+                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
+                    <span>🏛️ Almamater</span>
+                    <span class="text-[10px] opacity-75">BEM Pubdok</span>
+                </button>
+                <button @click="activePhoto = 'project_day'"
+                        :class="activePhoto === 'project_day' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
+                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
+                    <span>🎯 Project Day</span>
+                    <span class="text-[10px] opacity-75">Panitia PDH</span>
+                </button>
+                <button @click="activePhoto = 'casual'"
+                        :class="activePhoto === 'casual' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
+                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
+                    <span>⚡ Casual</span>
+                    <span class="text-[10px] opacity-75">Real Life</span>
+                </button>
+            </div>
+
             {{-- Tech stack mini tags --}}
-            <div class="flex flex-wrap gap-2">
-                @foreach(['Laravel', 'Python', 'Figma', 'MySQL', 'Tailwind CSS'] as $tech)
+            <div class="flex flex-wrap gap-2 pt-1">
+                @foreach(['Laravel', 'Python', 'Figma', 'MySQL', 'Tailwind CSS', 'Alpine.js'] as $tech)
                 <span class="tag tag-blue">{{ $tech }}</span>
                 @endforeach
             </div>

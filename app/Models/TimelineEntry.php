@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TimelineEntry extends Model
 {
     protected $fillable = [
-        'type', 'title', 'institution', 'description',
+        'type', 'title', 'institution', 'description', 'image_url',
         'period_start', 'period_end', 'is_current',
         'icon_emoji', 'badge_color', 'sort_order',
     ];

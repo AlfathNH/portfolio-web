@@ -89,6 +89,25 @@
                                 {{ $entry->description }}
                             </p>
                             @endif
+
+                            @if($entry->image_url)
+                            <div class="mt-3.5 pl-9">
+                                <div class="inline-flex items-center gap-3.5 p-2 pr-4 rounded-xl bg-slate-50 dark:bg-dark-surface border border-light-border dark:border-dark-border group hover:border-primary-400 dark:hover:border-primary-600 transition-all shadow-xs">
+                                    <div class="relative w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                        <img src="{{ asset($entry->image_url) }}" alt="{{ $entry->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span class="text-xs font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                                            <span>📸</span>
+                                            <span>Dokumentasi Kegiatan</span>
+                                        </span>
+                                        <span class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                                            Dokumentasi saat bertugas di {{ $entry->institution }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     @endforeach

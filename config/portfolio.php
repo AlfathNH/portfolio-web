@@ -53,7 +53,7 @@ return [
     'github'    => env('PORTFOLIO_GITHUB', 'AlfathNH'),
     'instagram' => env('PORTFOLIO_INSTAGRAM', 'fathz_19'),
     'youtube'   => env('PORTFOLIO_YOUTUBE', 'alfathnoor11'),
-    'avatar_url' => 'https://github.com/AlfathNH.png',
+    'avatar_url' => env('PORTFOLIO_AVATAR_URL', '/images/profile-almamater.jpg'),
 
     /*
     |--------------------------------------------------------------------------
