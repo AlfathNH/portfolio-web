@@ -95,6 +95,69 @@
 
     </div>
 
+    {{-- Proactive AI Greeting Bubble --}}
+    <div x-data="{
+            showGreeting: false,
+            dismissed: false,
+            init() {
+                if (sessionStorage.getItem('chatbot_greeting_dismissed')) return;
+                setTimeout(() => {
+                    if (!$store.chatbot.open && !this.dismissed) {
+                        this.showGreeting = true;
+                    }
+                }, 2800);
+            },
+            dismiss() {
+                this.showGreeting = false;
+                this.dismissed = true;
+                sessionStorage.setItem('chatbot_greeting_dismissed', 'true');
+            },
+            openChat() {
+                this.dismiss();
+                $store.chatbot.open = true;
+            }
+         }"
+         x-show="showGreeting && !$store.chatbot.open"
+         x-transition:enter="transition ease-out duration-300 transform"
+         x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+         x-transition:leave="transition ease-in duration-200 transform"
+         x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+         class="absolute bottom-16 right-0 mb-3 w-72 sm:w-80 max-w-[calc(100vw-3rem)] bg-white dark:bg-dark-card border border-light-border dark:border-dark-border rounded-2xl shadow-2xl p-4 cursor-pointer group hover:border-primary-400 dark:hover:border-primary-500 transition-all duration-200 select-none z-[110]"
+         @click="openChat()">
+
+        <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-full bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0 p-1 border border-primary-200 dark:border-primary-800/40">
+                <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Avatar" class="w-full h-full object-contain">
+            </div>
+            <div class="flex-1 pr-4">
+                <div class="flex items-center gap-1.5 mb-1">
+                    <span class="text-xs font-bold text-slate-900 dark:text-slate-100">AI Assistant</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
+                    👋 Halo! Mau tahu lebih banyak tentang proyek atau skill Alfath? Yuk tanya saya!
+                </p>
+                <div class="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-primary-600 dark:text-primary-400 group-hover:underline">
+                    <span>Mulai chat</span>
+                    <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </div>
+            <button @click.stop="dismiss()"
+                    class="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    title="Tutup pesan">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        {{-- Speech Bubble Arrow Tip --}}
+        <div class="absolute -bottom-1.5 right-6 w-3 h-3 bg-white dark:bg-dark-card border-r border-b border-light-border dark:border-dark-border transform rotate-45"></div>
+    </div>
+
     {{-- Floating Toggle Button --}}
     <button @click="$store.chatbot.toggle()"
             class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-600 to-indigo-600 text-white shadow-lg shadow-primary-600/40
