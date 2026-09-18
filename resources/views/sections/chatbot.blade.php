@@ -15,7 +15,9 @@
         {{-- Chat Header --}}
         <div class="bg-gradient-to-r from-primary-600 to-indigo-600 p-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg">🤖</div>
+                <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center p-1.5 shadow-sm overflow-hidden flex-shrink-0">
+                    <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Assistant" class="w-full h-full object-contain">
+                </div>
                 <div>
                     <div class="text-sm font-bold text-white">Alfath's AI Assistant</div>
                     <div class="text-xs text-white/70">Ask me anything about Alfath!</div>
@@ -105,7 +107,9 @@
         <div x-show="!$store.chatbot.open" class="absolute w-14 h-14 rounded-full bg-primary-600/30 animate-ping"></div>
 
         <template x-if="!$store.chatbot.open">
-            <span class="text-2xl relative z-10">🤖</span>
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shadow-sm relative z-10 transition-transform duration-200">
+                <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Assistant" class="w-full h-full object-contain">
+            </div>
         </template>
         <template x-if="$store.chatbot.open">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
