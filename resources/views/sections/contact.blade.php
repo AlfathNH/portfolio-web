@@ -23,7 +23,7 @@
                     </svg>
                 </div>
                 <strong class="text-sm font-semibold text-slate-900 dark:text-slate-100">GitHub</strong>
-                <span class="text-xs text-slate-500 dark:text-slate-400">{{ config('portfolio.github') }}</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">{{ '@' . config('portfolio.github') }}</span>
             </a>
 
             <a href="https://instagram.com/{{ config('portfolio.instagram') }}" target="_blank" rel="noopener"
@@ -34,10 +34,10 @@
                     </svg>
                 </div>
                 <strong class="text-sm font-semibold text-slate-900 dark:text-slate-100">Instagram</strong>
-                <span class="text-xs text-slate-500 dark:text-slate-400">@{{ config('portfolio.instagram') }}</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">{{ '@' . config('portfolio.instagram') }}</span>
             </a>
 
-            <a href="https://youtube.com/@{{ config('portfolio.youtube') }}" target="_blank" rel="noopener"
+            <a href="https://youtube.com/{{ '@' . config('portfolio.youtube') }}" target="_blank" rel="noopener"
                class="contact-card" id="contact-youtube">
                 <div class="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
                     <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@
                     </svg>
                 </div>
                 <strong class="text-sm font-semibold text-slate-900 dark:text-slate-100">YouTube</strong>
-                <span class="text-xs text-slate-500 dark:text-slate-400">@{{ config('portfolio.youtube') }}</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">{{ '@' . config('portfolio.youtube') }}</span>
             </a>
 
             <a href="mailto:{{ config('portfolio.email') }}" class="contact-card" id="contact-email">
