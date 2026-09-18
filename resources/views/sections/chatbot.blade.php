@@ -15,8 +15,10 @@
         {{-- Chat Header --}}
         <div class="bg-gradient-to-r from-primary-600 to-indigo-600 p-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center p-1.5 shadow-sm overflow-hidden flex-shrink-0">
-                    <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Assistant" class="w-full h-full object-contain">
+                <div class="w-10 h-10 rounded-full bg-white/25 p-0.5 shadow-sm flex-shrink-0">
+                    <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-1">
+                        <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Assistant" class="w-full h-full object-contain">
+                    </div>
                 </div>
                 <div>
                     <div class="text-sm font-bold text-white">Alfath's AI Assistant</div>
@@ -127,8 +129,11 @@
          @click="openChat()">
 
         <div class="flex items-start gap-3">
-            <div class="w-9 h-9 rounded-full bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0 p-1 border border-primary-200 dark:border-primary-800/40">
-                <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Avatar" class="w-full h-full object-contain">
+            {{-- High-contrast avatar badge with vibrant ring and clean white disc --}}
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-indigo-600 p-0.5 shadow-md flex-shrink-0">
+                <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-1">
+                    <img src="{{ asset('images/chatbot-avatar.png') }}" alt="AI Avatar" class="w-full h-full object-contain">
+                </div>
             </div>
             <div class="flex-1 pr-4">
                 <div class="flex items-center gap-1.5 mb-1">
