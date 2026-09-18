@@ -74,19 +74,19 @@
     },
     {
       "slug": "memecam-virtual-camera",
-      "title": "MemeCam Virtual Camera",
-      "description": "Python-based virtual camera app that overlays meme templates in real-time using OpenCV. Integrates with video conferencing tools like Zoom and Google Meet as a virtual camera source.",
+      "title": "Meme Reaction Virtual Camera",
+      "description": "Kamera virtual cerdas berbasis Python untuk Zoom, Google Meet, dan Microsoft Teams yang otomatis menampilkan reaksi meme mengambang (floating overlay) dengan animasi smooth saat mendeteksi pose/gesture tangan di depan webcam menggunakan Google MediaPipe dan OpenCV.",
       "category": "ai-python",
-      "tech_stack": ["Python", "OpenCV", "pyvirtualcam", "NumPy"],
-      "github_repo": "AlfathNH/Meme-Reaction-Virtual-Camera",
-      "github_url": "https://github.com/AlfathNH/Meme-Reaction-Virtual-Camera",
+      "tech_stack": ["Python", "OpenCV", "MediaPipe", "OBS Virtual Cam", "NumPy"],
+      "github_repo": "AlfathNH/Meme-Reaction-Virtual-Camera.",
+      "github_url": "https://github.com/AlfathNH/Meme-Reaction-Virtual-Camera.",
       "featured": true,
       "status": "completed",
       "highlights": [
-        "Real-time meme overlay menggunakan OpenCV",
-        "Integrasi sebagai virtual camera di Zoom/Meet",
-        "Pemrosesan video frame-by-frame dengan Python",
-        "Berbagai template meme yang bisa dipilih"
+        "Real-time Gesture Recognition dengan Google MediaPipe Hands & Face Mesh",
+        "Floating Meme Overlay dengan animasi smooth fade-in dan fade-out",
+        "Integrasi langsung dengan OBS Virtual Camera tanpa perlu buka aplikasi OBS",
+        "Mendukung aneka pose tangan: Shaka, Love, Thumbs Up, Victory, Thinking, & Crying"
       ]
     }
   ],
@@ -155,8 +155,8 @@
       "a": "Saya menguasai Laravel (PHP), HTML5, CSS3, JavaScript, Tailwind CSS, Figma, MySQL, Git, Python, dan n8n untuk workflow automation. Untuk skill lengkapnya bisa dilihat di bagian Skills di portfolio ini."
     },
     {
-      "q": "Ceritakan tentang MemeCam!",
-      "a": "MemeCam adalah proyek Python yang saya buat untuk menempatkan overlay meme secara real-time menggunakan OpenCV. Hasilnya diintegrasikan sebagai virtual camera yang bisa digunakan di Zoom atau Google Meet. Proyek ini melatih saya dalam image processing dan Python programming."
+      "q": "Ceritakan tentang Meme Reaction Virtual Camera!",
+      "a": "Meme Reaction Virtual Camera adalah aplikasi kamera virtual cerdas berbasis Python untuk Zoom, Google Meet, dan Teams. Aplikasi ini menggunakan Google MediaPipe Hands & Face Mesh serta OpenCV untuk mendeteksi gesture tangan (seperti Shaka, Love/Finger Heart, Thumbs Up, Victory, Thinking, Crying) secara real-time dan memunculkan animasi floating meme overlay di layar secara otomatis tanpa perlu membuka aplikasi OBS Studio atau share screen."
     },
     {
       "q": "Dimana kamu kuliah?",

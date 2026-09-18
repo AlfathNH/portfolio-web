@@ -20,7 +20,7 @@ REPO_SLUG_MAP = {
     "ostrich-smart-hub": "AlfathNH/Project-2-Ostrich-Smart-Hub",
     "vertex-logistics-concept": "AlfathNH/Vertex-Logistics-UIUX-Concept",
     "pasar-kalijati-system": "AlfathNH/Project-1-Sistem-Retribusi-Pasar-Desa-Kalijati-Timur-Berbasis-Excel",
-    "memecam-virtual-camera": "AlfathNH/Meme-Reaction-Virtual-Camera",
+    "memecam-virtual-camera": "AlfathNH/Meme-Reaction-Virtual-Camera.",
 }
 
 
