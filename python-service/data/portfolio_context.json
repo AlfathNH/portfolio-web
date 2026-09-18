@@ -78,8 +78,8 @@
       "description": "Python-based virtual camera app that overlays meme templates in real-time using OpenCV. Integrates with video conferencing tools like Zoom and Google Meet as a virtual camera source.",
       "category": "ai-python",
       "tech_stack": ["Python", "OpenCV", "pyvirtualcam", "NumPy"],
-      "github_repo": "AlfathNH/MemeCam",
-      "github_url": "https://github.com/AlfathNH/MemeCam",
+      "github_repo": "AlfathNH/Meme-Reaction-Virtual-Camera",
+      "github_url": "https://github.com/AlfathNH/Meme-Reaction-Virtual-Camera",
       "featured": true,
       "status": "completed",
       "highlights": [

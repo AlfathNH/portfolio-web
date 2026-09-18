@@ -91,7 +91,7 @@ class PortfolioSeeder extends Seeder
                     'Pemrosesan video frame-by-frame',
                     'Berbagai template meme yang dapat dipilih',
                 ],
-                'github_repo'    => 'AlfathNH/MemeCam',
+                'github_repo'    => 'AlfathNH/Meme-Reaction-Virtual-Camera',
                 'thumb_icon'     => '🎭',
                 'thumb_gradient' => 'from-purple-600 to-indigo-900',
                 'featured'       => true,
