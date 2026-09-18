@@ -82,45 +82,51 @@
                         title: 'Menteri Pubdok BEM',
                         caption: 'Badan Eksekutif Mahasiswa POLSUB',
                         badge: '🏛️ Leadership & Campus',
-                        badgeClass: 'bg-primary-600 text-white'
+                        badgeClass: 'bg-primary-600 text-white',
+                        position: 'center 20%'
                     },
                     project_day: {
                         src: '{{ asset('images/activity-project-day.jpg') }}',
                         title: 'Panitia Project Day POLSUB',
                         caption: 'Dokumentasi & Pameran Inovasi',
                         badge: '🎯 Event & Community',
-                        badgeClass: 'bg-indigo-600 text-white'
+                        badgeClass: 'bg-indigo-600 text-white',
+                        position: 'center 95%'
                     },
                     casual: {
                         src: '{{ asset('images/casual-pose.jpg') }}',
                         title: 'Behind the Scenes',
                         caption: 'Authentic & Creative Energy',
                         badge: '⚡ Beyond the Code',
-                        badgeClass: 'bg-amber-600 text-white'
+                        badgeClass: 'bg-amber-600 text-white',
+                        position: 'center 20%'
                     }
                 }
              }">
 
             {{-- Main Interactive Frame --}}
             <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary-600 to-indigo-700 p-1 shadow-glow-md">
-                <div class="rounded-xl overflow-hidden bg-white dark:bg-dark-card aspect-square relative group">
+                <div class="rounded-xl overflow-hidden bg-white dark:bg-dark-card aspect-[4/5] relative group">
                     <img :src="photos[activePhoto].src"
                          alt="{{ config('portfolio.name') }}"
-                         class="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-105"
+                         :style="'object-position: ' + photos[activePhoto].position"
+                         class="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-105"
                          loading="lazy">
 
                     {{-- Activity Badge on top right --}}
-                    <div class="absolute top-3 right-3 backdrop-blur-md rounded-full px-3 py-1 text-xs font-semibold shadow-md"
+                    <div class="absolute top-3 right-3 backdrop-blur-md rounded-full px-3 py-1 text-xs font-semibold shadow-md z-10"
                          :class="photos[activePhoto].badgeClass"
                          x-text="photos[activePhoto].badge">
                     </div>
 
                     {{-- Floating tag on bottom --}}
-                    <div class="absolute bottom-3 left-3 right-3 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md rounded-xl p-3.5 shadow-lg border border-white/20 transition-all">
-                        <div class="text-sm font-bold text-slate-900 dark:text-slate-100" x-text="photos[activePhoto].title"></div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 flex items-center justify-between">
-                            <span x-text="photos[activePhoto].caption"></span>
-                            <span class="text-[10px] text-primary-600 dark:text-primary-400 font-semibold uppercase tracking-wider">Alfath N. H.</span>
+                    <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md rounded-xl p-2.5 px-3 border border-white/15 text-white transition-all z-10 shadow-lg">
+                        <div class="flex items-center justify-between gap-2">
+                            <div>
+                                <div class="text-xs font-bold text-white tracking-wide" x-text="photos[activePhoto].title"></div>
+                                <div class="text-[11px] text-slate-300 mt-0.5" x-text="photos[activePhoto].caption"></div>
+                            </div>
+                            <span class="text-[10px] text-primary-300 font-semibold uppercase tracking-wider flex-shrink-0">Alfath N. H.</span>
                         </div>
                     </div>
                 </div>
