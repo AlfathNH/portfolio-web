@@ -1,0 +1,65 @@
+services:
+  # ─── Laravel Web Application ───────────────────────────────────────────────
+  - type: web
+    name: alfath-portfolio
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    dockerfilePath: Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: APP_NAME
+        value: "Alfath Portfolio"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_STORE
+        value: file
+      - key: PORTFOLIO_NAME
+        value: "Alfath Noorislami Herawansyah"
+      - key: PORTFOLIO_SHORT_NAME
+        value: "Alfath"
+      - key: PORTFOLIO_EMAIL
+        value: "alfathnoor11@gmail.com"
+      - key: PORTFOLIO_GITHUB
+        value: "AlfathNH"
+      - key: PORTFOLIO_INSTAGRAM
+        value: "fathz_19"
+      - key: PORTFOLIO_YOUTUBE
+        value: "alfathnoor11"
+      - key: PORTFOLIO_AVAILABILITY
+        value: "open_to_work"
+      - key: PORTFOLIO_AVATAR_URL
+        value: "/images/profile-almamater.jpg"
+      - key: CHATBOT_ENABLED
+        value: "true"
+      - key: GITHUB_STATS_ENABLED
+        value: "true"
+      - key: AI_SERVICE_URL
+        value: "https://alfath-portfolio-ai.onrender.com"
+
+  # ─── Python AI Microservice (FastAPI) ──────────────────────────────────────
+  - type: web
+    name: alfath-portfolio-ai
+    runtime: python
+    plan: free
+    region: singapore
+    branch: main
+    rootDir: python-service
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: GITHUB_USERNAME
+        value: "AlfathNH"
+      - key: PORTFOLIO_CONTEXT_FILE
+        value: "data/portfolio_context.json"
+      - key: GEMINI_API_KEY
+        sync: false
