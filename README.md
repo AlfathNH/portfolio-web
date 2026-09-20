@@ -49,8 +49,8 @@ portfolio/                    ← Laravel 13 App
 ### 1. Clone & Setup Laravel
 
 ```bash
-git clone https://github.com/AlfathNH/portfolio.git
-cd portfolio
+git clone https://github.com/AlfathNH/portfolio-web.git
+cd portfolio-web
 
 # Install dependencies
 composer install
