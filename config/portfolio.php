@@ -10,9 +10,10 @@ return [
 
     'name'       => env('PORTFOLIO_NAME', 'Alfath Noorislami Herawansyah'),
     'short_name' => env('PORTFOLIO_SHORT_NAME', 'Alfath'),
-    'tagline'    => env('PORTFOLIO_TAGLINE', 'Information Systems Student at Politeknik Negeri Subang'),
-    'bio'        => 'I\'m a passionate Information Systems student at Politeknik Negeri Subang (POLSUB). I enjoy crafting intuitive user interfaces, building web applications, and solving real-world problems through technology. I am deeply committed to creating impactful digital experiences.',
-    'location'   => 'Subang, West Java, Indonesia',
+    'tagline'    => env('PORTFOLIO_TAGLINE', 'Mahasiswa D3 Sistem Informasi di Politeknik Negeri Subang'),
+    'bio'        => 'Mahasiswa D3 Sistem Informasi di Politeknik Negeri Subang yang berfokus pada pengembangan web (Laravel) dan desain UI/UX. Memiliki pengalaman nyata dalam merancang konsep logistik cerdas, membangun aplikasi manajemen berbasis web, serta aktif dalam organisasi kemahasiswaan sebagai Menteri Pubdok BEM POLSUB. Memiliki inisiatif tinggi dalam mempelajari teknologi otomatisasi alur kerja (n8n) untuk mendukung efisiensi sistem.',
+    'location'   => 'Purwadadi, Subang, Jawa Barat, Indonesia',
+    'birth_info' => 'Purwakarta, 19 November 2005',
 
     /*
     |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ return [
         'UI/UX Designer',
         'Web Developer',
         'Laravel Developer',
-        'Python Enthusiast',
-        'Tech & Innovation Enthusiast',
+        'Python & AI Vision',
+        'Workflow Automation (n8n)',
     ],
 
     /*
@@ -38,8 +39,8 @@ return [
     'availability' => env('PORTFOLIO_AVAILABILITY', 'open_to_work'),
 
     'availability_labels' => [
-        'open_to_work'     => 'Open to Work',
-        'open_to_freelance' => 'Open to Freelance',
+        'open_to_work'     => 'Open to Work & Collaboration',
+        'open_to_freelance' => 'Open to Freelance Projects',
         'unavailable'      => 'Currently Unavailable',
     ],
 
@@ -49,11 +50,16 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'email'     => env('PORTFOLIO_EMAIL', 'alfathnoor11@gmail.com'),
-    'github'    => env('PORTFOLIO_GITHUB', 'AlfathNH'),
-    'instagram' => env('PORTFOLIO_INSTAGRAM', 'fathz_19'),
-    'youtube'   => env('PORTFOLIO_YOUTUBE', 'alfathnoor11'),
-    'avatar_url' => env('PORTFOLIO_AVATAR_URL', '/images/profile-almamater.jpg'),
+    'email'        => env('PORTFOLIO_EMAIL', 'alfathnoor11@gmail.com'),
+    'phone'        => env('PORTFOLIO_PHONE', '+62 895-3745-17121'),
+    'whatsapp'     => env('PORTFOLIO_WHATSAPP', '62895374517121'),
+    'whatsapp_url' => 'https://wa.me/62895374517121',
+    'linktree'     => 'alfathnoor11',
+    'linktree_url' => 'https://linktr.ee/alfathnoor11',
+    'github'       => env('PORTFOLIO_GITHUB', 'AlfathNH'),
+    'instagram'    => env('PORTFOLIO_INSTAGRAM', 'fathz_19'),
+    'youtube'      => env('PORTFOLIO_YOUTUBE', 'alfathnoor11'),
+    'avatar_url'   => env('PORTFOLIO_AVATAR_URL', '/images/profile-almamater.jpg'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,9 +89,62 @@ return [
 
     'stats' => [
         'projects_built' => 4,
+        'awards_won'     => 4,
         'years_study'    => 2,
         'total_skills'   => 16,
-        'curiosity'      => '∞',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Official Awards & Honors (Prestasi & Kejuaraan)
+    |--------------------------------------------------------------------------
+    */
+
+    'awards' => [
+        [
+            'rank'        => 'Juara 1',
+            'badge'       => '🥇 1st Place',
+            'title'       => 'Juara 1 International Short Film',
+            'competition' => 'Kompetisi AI',
+            'organizer'   => 'HMJ MI Polnes Sambas',
+            'level'       => 'Internasional',
+            'color'       => 'amber',
+            'icon'        => '🏆',
+            'year'        => '2025',
+        ],
+        [
+            'rank'        => 'Juara 3',
+            'badge'       => '🥉 3rd Place',
+            'title'       => 'Juara 3 UI/UX FUSE',
+            'competition' => 'FUSE UI/UX Competition',
+            'organizer'   => 'Politeknik Manufaktur Bandung (POLMAN)',
+            'level'       => 'Nasional / Perguruan Tinggi',
+            'color'       => 'cyan',
+            'icon'        => '🎨',
+            'year'        => '2025',
+        ],
+        [
+            'rank'        => 'Juara Harapan 1',
+            'badge'       => '🎖️ 4th Runner Up',
+            'title'       => '4th Runner Up (Juara Harapan 1) Short Movie',
+            'competition' => 'The 7th WinAction',
+            'organizer'   => 'Universitas Widyatama & LLDIKTI Wilayah IV',
+            'level'       => 'Regional / Wilayah IV',
+            'color'       => 'purple',
+            'icon'        => '🎬',
+            'year'        => '2025',
+        ],
+        [
+            'rank'        => 'Juara Harapan 1',
+            'badge'       => '🏅 Harapan 1',
+            'title'       => 'Juara Harapan 1 Videografi',
+            'competition' => 'Lomba Videografi Kesejarahan Lokal',
+            'organizer'   => 'Dinas Pendidikan Kabupaten Subang',
+            'level'       => 'Kabupaten Subang',
+            'color'       => 'emerald',
+            'icon'        => '📹',
+            'year'        => '2024',
+        ],
     ],
 
 ];

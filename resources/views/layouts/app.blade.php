@@ -25,6 +25,11 @@
     <meta name="twitter:description" content="{{ config('portfolio.tagline') }}">
     <meta name="twitter:image" content="{{ config('portfolio.avatar_url') }}">
 
+    {{-- Google Fonts: Inter & JetBrains Mono --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
     {{-- Devicon CDN --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 

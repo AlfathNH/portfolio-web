@@ -1,165 +1,172 @@
-{{-- ── About Section ── --}}
+{{-- ── About Section (Golden Ratio & 3-Photo Executive Showcase) ── --}}
 <section id="about" class="relative z-10">
-    <div class="section-inner grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+    <div class="section-inner grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-        {{-- Left: Bio & Stats --}}
-        <div class="about-info fade-up">
-            <span class="section-label">About Me</span>
-            <h2 class="section-title">Turning ideas into<br><span class="text-gradient">digital reality</span></h2>
+        {{-- Left: Narrative & Metrics (7 cols on desktop = 58.3%) --}}
+        <div class="lg:col-span-7 flex flex-col fade-up">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="section-label mb-0">About Me</span>
+                <div class="h-px w-8 bg-primary-500/40"></div>
+            </div>
+
+            <h2 class="section-title">
+                Turning Ideas into <br class="hidden sm:inline">
+                <span class="text-gradient">Impactful Reality</span>
+            </h2>
             <div class="divider-glow"></div>
 
-            <p class="text-slate-500 dark:text-slate-400 leading-[1.85] text-sm mb-4">
-                I'm a 2nd-year Information Systems student at <strong class="text-slate-700 dark:text-slate-300">Politeknik Negeri Subang (POLSUB)</strong>. I enjoy crafting intuitive user interfaces, building web applications, and solving real-world problems through technology.
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                I am a 2nd-year Information Systems student at <strong class="text-slate-900 dark:text-white">Politeknik Negeri Subang (POLSUB)</strong>. My focus centers on web engineering (Laravel &amp; PHP), database systems, human-centered UI/UX design, and workflow automation (n8n).
             </p>
-            <p class="text-slate-500 dark:text-slate-400 leading-[1.85] text-sm mb-8">
-                I am deeply passionate about creating impactful digital experiences and continuously expanding my skill set to build innovative solutions. My focus is on leveraging technical and creative abilities to deliver high-quality, user-centric products.
+            <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
+                Active both as a software creator and student leader, I serve as <span class="font-semibold text-slate-800 dark:text-slate-200">Menteri Publikasi &amp; Dokumentasi BEM POLSUB</span> (initiator of <em>"Dwibulanan Pradipa"</em>) and have earned multiple championships in international AI short film, national UI/UX, and videography.
             </p>
 
-            {{-- Availability Banner --}}
-            @php
-                $availabilityKey = config('portfolio.availability');
-                $isAvailable = in_array($availabilityKey, ['open_to_work', 'open_to_freelance']);
-                $availLabel = config("portfolio.availability_labels.{$availabilityKey}", 'Open to Work');
-            @endphp
-            @if($isAvailable)
-            <div class="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/15 border border-emerald-200 dark:border-emerald-700/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold py-2 px-3.5 rounded-lg mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                {{ $availLabel }} — Available for projects & collaboration
-            </div>
-            @endif
-
-            {{-- Quick Info --}}
-            <div class="flex flex-col gap-2 text-sm mb-8">
-                <div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
-                    <svg class="w-4 h-4 text-primary-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    {{ config('portfolio.location') }}
+            {{-- Quick Metadata Details --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 text-sm">
+                <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                    <span class="w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-950/40 border border-primary-100 dark:border-primary-800/40 flex items-center justify-center text-primary-600 dark:text-cyan-400 flex-shrink-0">
+                        📍
+                    </span>
+                    <span>{{ config('portfolio.location') }}</span>
                 </div>
-                <div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
-                    <svg class="w-4 h-4 text-primary-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                    </svg>
-                    D4 Sistem Informasi · Politeknik Negeri Subang
+                <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                    <span class="w-8 h-8 rounded-lg bg-primary-50 dark:bg-primary-950/40 border border-primary-100 dark:border-primary-800/40 flex items-center justify-center text-primary-600 dark:text-cyan-400 flex-shrink-0">
+                        🎓
+                    </span>
+                    <span>D3 Sistem Informasi · POLSUB</span>
                 </div>
-                <div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
-                    <svg class="w-4 h-4 text-primary-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    {{ config('portfolio.email') }}
+                <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                    <span class="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center text-amber-600 dark:text-amber-400 flex-shrink-0">
+                        🏆
+                    </span>
+                    <a href="#awards-spotlight" class="hover:text-amber-600 dark:hover:text-amber-400 font-semibold transition-colors">
+                        4 Kejuaraan &amp; Prestasi Resmi
+                    </a>
+                </div>
+                <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 flex-shrink-0">
+                        💬
+                    </span>
+                    <a href="{{ config('portfolio.whatsapp_url') }}" target="_blank" rel="noopener" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors truncate">
+                        WA: {{ config('portfolio.phone') }}
+                    </a>
                 </div>
             </div>
 
-            {{-- Stat Cards --}}
-            <div class="grid grid-cols-3 gap-3">
+            {{-- 4 Stat Cards: 2x2 on Mobile, 4x1 on Desktop (No cramped overflowing) --}}
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
                 @php
                     $stats = config('portfolio.stats');
                 @endphp
-                <div class="stat-card fade-up">
-                    <div class="text-3xl font-black text-primary-600 dark:text-primary-400">{{ $stats['projects_built'] }}+</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-tight">Projects<br>Built</div>
+                <div class="stat-card">
+                    <div class="text-2xl sm:text-3xl font-black text-primary-600 dark:text-cyan-400">{{ $stats['projects_built'] }}+</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-semibold leading-tight">Featured<br>Projects</div>
                 </div>
-                <div class="stat-card fade-up">
-                    <div class="text-3xl font-black text-primary-600 dark:text-primary-400">{{ $stats['years_study'] }}</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-tight">Years of<br>Study</div>
+                <div class="stat-card border-amber-300/40 dark:border-amber-500/30 bg-gradient-to-b from-amber-50/50 to-transparent dark:from-amber-950/20">
+                    <div class="text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400">{{ $stats['awards_won'] ?? 4 }}</div>
+                    <div class="text-xs text-slate-600 dark:text-slate-300 mt-1 font-semibold leading-tight">Awards &amp;<br>Honors</div>
                 </div>
-                <div class="stat-card fade-up">
-                    <div class="text-3xl font-black text-primary-600 dark:text-primary-400">{{ $stats['curiosity'] }}</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-tight">Intellectual<br>Curiosity</div>
+                <div class="stat-card">
+                    <div class="text-2xl sm:text-3xl font-black text-primary-600 dark:text-cyan-400">{{ $stats['total_skills'] }}+</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-semibold leading-tight">Skills &amp;<br>Tools</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-2xl sm:text-3xl font-black text-primary-600 dark:text-cyan-400">{{ $stats['years_study'] }}</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-semibold leading-tight">Years<br>at POLSUB</div>
                 </div>
             </div>
+
         </div>
 
-        {{-- Right: Interactive Photo Gallery Panel --}}
-        <div class="relative fade-up flex flex-col gap-4" style="animation-delay: 0.1s;"
+        {{-- Right: Interactive Real Photo Switcher (5 cols on desktop = 41.7%) --}}
+        <div class="lg:col-span-5 flex flex-col gap-4 fade-up"
              x-data="{
                 activePhoto: 'almamater',
                 photos: {
                     almamater: {
                         src: '{{ asset('images/profile-almamater.jpg') }}',
-                        title: 'Menteri Pubdok BEM',
-                        caption: 'Badan Eksekutif Mahasiswa POLSUB',
-                        badge: '🏛️ Leadership & Campus',
+                        title: 'Menteri Pubdok BEM POLSUB',
+                        caption: 'Badan Eksekutif Mahasiswa · Departemen Kominfo',
+                        badge: '🏛️ Campus Leadership',
                         badgeClass: 'bg-primary-600 text-white',
                         position: 'center 20%'
                     },
                     project_day: {
                         src: '{{ asset('images/activity-project-day.jpg') }}',
-                        title: 'Panitia Project Day POLSUB',
-                        caption: 'Dokumentasi & Pameran Inovasi',
-                        badge: '🎯 Event & Community',
+                        title: 'Panitia Subang Project Day',
+                        caption: 'Dokumentasi & Pameran Karya Inovasi Teknologi',
+                        badge: '🎯 Innovation & Community',
                         badgeClass: 'bg-indigo-600 text-white',
                         position: 'center 95%'
                     },
                     casual: {
                         src: '{{ asset('images/casual-pose.jpg') }}',
-                        title: 'Behind the Scenes',
-                        caption: 'Authentic & Creative Energy',
-                        badge: '⚡ Beyond the Code',
-                        badgeClass: 'bg-amber-600 text-white',
+                        title: 'Creative Energy',
+                        caption: 'Beyond the Code · Authentic Perspective',
+                        badge: '⚡ Real Life Focus',
+                        badgeClass: 'bg-cyan-600 text-white',
                         position: 'center 20%'
                     }
                 }
              }">
 
-            {{-- Main Interactive Frame --}}
-            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary-600 to-indigo-700 p-1 shadow-glow-md">
+            {{-- Main Photo Frame with Specular Border --}}
+            <div class="relative rounded-2xl overflow-hidden p-1 bg-gradient-to-br from-primary-600 via-cyan-400 to-indigo-600 shadow-xl shadow-primary-600/15">
                 <div class="rounded-xl overflow-hidden bg-white dark:bg-dark-card aspect-[4/5] relative group">
                     <img :src="photos[activePhoto].src"
                          alt="{{ config('portfolio.name') }}"
                          :style="'object-position: ' + photos[activePhoto].position"
-                         class="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-105"
+                         class="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-102"
                          loading="lazy">
 
-                    {{-- Activity Badge on top right --}}
-                    <div class="absolute top-3 right-3 backdrop-blur-md rounded-full px-3 py-1 text-xs font-semibold shadow-md z-10"
+                    {{-- Dynamic Activity Badge --}}
+                    <div class="absolute top-3 right-3 backdrop-blur-md rounded-full px-3 py-1 text-xs font-bold shadow-md z-10 transition-all"
                          :class="photos[activePhoto].badgeClass"
                          x-text="photos[activePhoto].badge">
                     </div>
 
-                    {{-- Floating tag on bottom --}}
-                    <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md rounded-xl p-2.5 px-3 border border-white/15 text-white transition-all z-10 shadow-lg">
+                    {{-- Captioned Glass Footer on Photo --}}
+                    <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md rounded-xl p-3 border border-white/15 text-white transition-all z-10 shadow-lg">
                         <div class="flex items-center justify-between gap-2">
                             <div>
-                                <div class="text-xs font-bold text-white tracking-wide" x-text="photos[activePhoto].title"></div>
+                                <div class="text-xs sm:text-sm font-bold text-white tracking-wide" x-text="photos[activePhoto].title"></div>
                                 <div class="text-[11px] text-slate-300 mt-0.5" x-text="photos[activePhoto].caption"></div>
                             </div>
-                            <span class="text-[10px] text-primary-300 font-semibold uppercase tracking-wider flex-shrink-0">Alfath N. H.</span>
+                            <span class="text-[10px] text-cyan-300 font-bold uppercase tracking-wider flex-shrink-0">Alfath N. H.</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {{-- Photo Switcher Buttons --}}
+            {{-- Photo Switcher Buttons (Touch-friendly >= 44px) --}}
             <div class="grid grid-cols-3 gap-2">
                 <button @click="activePhoto = 'almamater'"
-                        :class="activePhoto === 'almamater' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
-                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
-                    <span>🏛️ Almamater</span>
-                    <span class="text-[10px] opacity-75">BEM Pubdok</span>
+                        :class="activePhoto === 'almamater'
+                            ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30 ring-2 ring-primary-400'
+                            : 'bg-white dark:bg-dark-card text-slate-700 dark:text-slate-300 border border-light-border dark:border-dark-border hover:border-primary-400'"
+                        class="min-h-[44px] px-2 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+                    <span class="font-bold">🏛️ BEM Pubdok</span>
+                    <span class="text-[10px] opacity-80">Almamater</span>
                 </button>
                 <button @click="activePhoto = 'project_day'"
-                        :class="activePhoto === 'project_day' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
-                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
-                    <span>🎯 Project Day</span>
-                    <span class="text-[10px] opacity-75">Panitia PDH</span>
+                        :class="activePhoto === 'project_day'
+                            ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30 ring-2 ring-primary-400'
+                            : 'bg-white dark:bg-dark-card text-slate-700 dark:text-slate-300 border border-light-border dark:border-dark-border hover:border-primary-400'"
+                        class="min-h-[44px] px-2 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+                    <span class="font-bold">🎯 Project Day</span>
+                    <span class="text-[10px] opacity-80">Panitia</span>
                 </button>
                 <button @click="activePhoto = 'casual'"
-                        :class="activePhoto === 'casual' ? 'bg-primary-600 text-white shadow-md ring-2 ring-primary-400' : 'bg-white dark:bg-dark-card text-slate-600 dark:text-slate-300 border border-light-border dark:border-dark-border hover:bg-primary-50 dark:hover:bg-slate-800'"
-                        class="px-2.5 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center gap-0.5">
-                    <span>⚡ Casual</span>
-                    <span class="text-[10px] opacity-75">Real Life</span>
+                        :class="activePhoto === 'casual'
+                            ? 'bg-primary-600 text-white shadow-md shadow-primary-600/30 ring-2 ring-primary-400'
+                            : 'bg-white dark:bg-dark-card text-slate-700 dark:text-slate-300 border border-light-border dark:border-dark-border hover:border-primary-400'"
+                        class="min-h-[44px] px-2 py-2 rounded-xl text-xs font-semibold transition-all text-center flex flex-col items-center justify-center gap-0.5 cursor-pointer">
+                    <span class="font-bold">⚡ Casual</span>
+                    <span class="text-[10px] opacity-80">Real Life</span>
                 </button>
             </div>
 
-            {{-- Tech stack mini tags --}}
-            <div class="flex flex-wrap gap-2 pt-1">
-                @foreach(['Laravel', 'Python', 'Figma', 'MySQL', 'Tailwind CSS', 'Alpine.js'] as $tech)
-                <span class="tag tag-blue">{{ $tech }}</span>
-                @endforeach
-            </div>
         </div>
 
     </div>

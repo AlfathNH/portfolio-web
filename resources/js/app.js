@@ -137,31 +137,34 @@ document.addEventListener('alpine:init', () => {
 
         getSmartFallback(message) {
             const q = message.toLowerCase();
+            if (q.includes('prestasi') || q.includes('kejuaraan') || q.includes('juara') || q.includes('lomba') || q.includes('menang') || q.includes('award') || q.includes('honor')) {
+                return "Berikut adalah 4 prestasi & kejuaraan resmi yang diraih Alfath:\n\n🥇 **Juara 1 International Short Film** — Kompetisi AI (HMJ MI Polnes Sambas)\n🥉 **Juara 3 UI/UX Design FUSE** — Politeknik Manufaktur Bandung (POLMAN)\n🎖️ **4th Runner Up (Juara Harapan 1) Short Movie** — The 7th WinAction (Univ Widyatama & LLDIKTI IV)\n🏅 **Juara Harapan 1 Videografi** — Kesejarahan Lokal (Dinas Pendidikan Kab. Subang)\n\nAnda dapat melihat kartu trofi selengkapnya di bagian Journey / Roadmap!";
+            }
             if (q.includes('proyek') || q.includes('project') || q.includes('karya') || q.includes('portfolio') || q.includes('portofolio') || q.includes('aplikasi')) {
-                return "Berikut adalah beberapa proyek unggulan Alfath:\n\n1. 📷 **Meme Reaction Virtual Camera** — Virtual camera Python berbasis computer vision & deep learning untuk mendeteksi ekspresi wajah secara real-time.\n2. 🌐 **Modern Interactive Portfolio** — Web portofolio responsif dengan dark mode, AI assistant, dan visual yang clean.\n3. 🎓 **Dokumentasi & Media Subang Project Day** — Pengelolaan publikasi dan liputan visual pameran teknologi Polsub.\n\nAnda bisa melihat detail dan source code lengkapnya di bagian Projects!";
+                return "Berikut adalah beberapa proyek utama Alfath:\n\n1. 🦩 **Ostrich Smart Hub** — Sistem manajemen tiket & satwa Mini Zoo berbasis Laravel, MySQL, dan otomatisasi alur kerja n8n.\n2. 📷 **Meme Reaction Virtual Camera** — Virtual camera Python berbasis deep learning & computer vision real-time.\n3. 🚚 **Vertex Logistics Smart System** — Konsep purwarupa UI/UX Figma untuk sistem logistik cerdas.\n4. 📊 **Sistem Retribusi Pasar Kalijati** — Aplikasi pencatatan retribusi pasar desa berbasis Excel VBA & Macros.\n\nKlik kartu proyek di bagian Projects untuk membuka pratinjau interaktif!";
             }
             if (q.includes('skill') || q.includes('keahlian') || q.includes('bahasa') || q.includes('stack') || q.includes('teknologi') || q.includes('kuasai') || q.includes('tech')) {
-                return "Tech stack yang dikuasai Alfath meliputi:\n\n• **Backend & Core:** PHP (Laravel), Python (FastAPI, OpenCV), SQL (MySQL, SQLite)\n• **Frontend:** Tailwind CSS, JavaScript, Alpine.js, Blade\n• **Tools & Others:** Git, GitHub, Docker, Figma UI/UX Design, Linux\n\nCek tab Skills di atas untuk melihat tingkat kemahiran masing-masing bidang!";
+                return "Keahlian utama Alfath meliputi:\n\n• **Hard Skills:** Web Dev (Laravel, PHP, Tailwind CSS, Alpine.js), Database (MySQL, SQLite), UI/UX Design (Figma), Otomasi Alur Kerja (n8n), Excel VBA & Macros.\n• **Soft Skills:** Kepemimpinan, Analisis, Kerja Sama Tim, Komunikasi Efektif, Pemecahan Masalah.\n• **Bahasa:** Indonesia (Bahasa Ibu), Inggris (Tingkat Pemula).";
             }
-            if (q.includes('kuliah') || q.includes('kampus') || q.includes('pendidikan') || q.includes('jurusan') || q.includes('polsub') || q.includes('sekolah') || q.includes('almamater')) {
-                return "Alfath saat ini berkuliah di **Politeknik Negeri Subang (POLSUB)** dengan minat mendalam pada Rekayasa Perangkat Lunak, Kecerdasan Buatan (AI), dan Desain Antarmuka Pengguna (UI/UX).";
+            if (q.includes('kuliah') || q.includes('kampus') || q.includes('pendidikan') || q.includes('jurusan') || q.includes('polsub') || q.includes('sekolah') || q.includes('almamater') || q.includes('sma')) {
+                return "Riwayat pendidikan resmi Alfath:\n\n🎓 **Politeknik Negeri Subang (POLSUB)** — D3 Sistem Informasi (2024 – Sekarang)\n🏫 **SMAN 2 Subang** — Jurusan MIPA (2021 – 2024)\n\nFokus akademik Alfath berpusat pada rekayasa web, arsitektur database, dan otomatisasi alur kerja.";
             }
-            if (q.includes('bem') || q.includes('organisasi') || q.includes('menteri') || q.includes('pengalaman') || q.includes('experience') || q.includes('project day')) {
-                return "Pengalaman kepemimpinan & organisasi Alfath:\n\n• **Menteri Publikasi & Dokumentasi (Pubdok) BEM POLSUB** — Memimpin tim kreatif, strategi konten visual, dan dokumentasi agenda kampus.\n• **Panitia Subang Project Day POLSUB** — Mengelola publikasi media dan dokumentasi pameran inovasi mahasiswa.";
+            if (q.includes('bem') || q.includes('organisasi') || q.includes('menteri') || q.includes('pengalaman') || q.includes('experience') || q.includes('project day') || q.includes('pradipa')) {
+                return "Pengalaman kepemimpinan & organisasi Alfath:\n\n• **Menteri Publikasi & Dokumentasi BEM POLSUB (2025–2026)** — Memimpin tim media dalam mengelola identitas visual dan menginisiasi program konten kreatif digital *'Dwibulanan Pradipa'*.\n• **Panitia Pelaksana Subang Project Day (2025)** — Divisi Publikasi & Dokumentasi pameran karya inovasi teknologi mahasiswa.";
             }
             if (q.includes('kerja') || q.includes('freelance') || q.includes('hire') || q.includes('open') || q.includes('tersedia') || q.includes('magang') || q.includes('intern') || q.includes('kontrak')) {
-                return "Ya, Alfath saat ini **Open to Work & Freelance Projects**! Siap membantu kebutuhan Web Development (Laravel/Tailwind), Otomasi/AI Python, atau Desain UI/UX. Hubungi langsung via email di **alfathnoor11@gmail.com**.";
+                return "Ya, Alfath saat ini **Open to Collaboration, Freelance, & Projects**! Siap membantu kebutuhan Web Development (Laravel), Otomasi (n8n/VBA), maupun UI/UX Design (Figma). Hubungi WhatsApp di **+62 895-3745-17121** atau email di **alfathnoor11@gmail.com**.";
             }
-            if (q.includes('kontak') || q.includes('email') || q.includes('instagram') || q.includes('hubungi') || q.includes('contact') || q.includes('wa') || q.includes('whatsapp') || q.includes('sosmed')) {
-                return "Anda bisa menghubungi Alfath melalui:\n\n📧 **Email:** alfathnoor11@gmail.com\n📱 **Instagram:** @fathz_19\n💻 **GitHub:** https://github.com/AlfathNH\n▶️ **YouTube:** @alfathnoor11";
+            if (q.includes('kontak') || q.includes('email') || q.includes('instagram') || q.includes('hubungi') || q.includes('contact') || q.includes('wa') || q.includes('whatsapp') || q.includes('sosmed') || q.includes('linktree') || q.includes('telepon')) {
+                return "Hubungi Alfath langsung melalui:\n\n💬 **WhatsApp:** +62 895-3745-17121 (https://wa.me/62895374517121)\n🌲 **Linktree:** https://linktr.ee/alfathnoor11\n📧 **Email:** alfathnoor11@gmail.com\n📱 **Instagram:** @fathz_19\n💻 **GitHub:** https://github.com/AlfathNH";
             }
             if (q.includes('meme') || q.includes('camera') || q.includes('kamera') || q.includes('virtual')) {
                 return "Proyek **Meme Reaction Virtual Camera** dibuat menggunakan Python & Computer Vision. Aplikasi ini menangkap ekspresi wajah secara live dan menampilkan reaksi meme yang cocok sebagai input virtual camera untuk OBS / Zoom / Google Meet!\n\nLink repo: https://github.com/AlfathNH/Meme-Reaction-Virtual-Camera";
             }
             if (q.includes('halo') || q.includes('hai') || q.includes('hi') || q.includes('pagi') || q.includes('siang') || q.includes('malam') || q.includes('assalam')) {
-                return "Halo! Senang menyapa Anda. Saya asisten cerdas portofolio Alfath. Anda bisa bertanya tentang proyek, keahlian, riwayat organisasi BEM, atau ketersediaan freelance Alfath!";
+                return "Halo! Senang menyapa Anda. Saya asisten cerdas portofolio Alfath. Anda bisa bertanya tentang kejuaraan/prestasi, proyek (Ostrich Smart Hub, Virtual Camera), riwayat BEM POLSUB, atau kontak WhatsApp Alfath!";
             }
-            return "Terima kasih atas pertanyaannya! Saya asisten virtual portofolio Alfath. Untuk pertanyaan khusus, kerja sama, atau diskusi teknis, Anda bisa langsung terhubung dengan Alfath via email di **alfathnoor11@gmail.com** atau Instagram **@fathz_19**.";
+            return "Terima kasih atas pertanyaannya! Saya asisten virtual portofolio Alfath Noorislami. Untuk kerja sama atau diskusi lebih lanjut, hubungi WhatsApp di **+62 895-3745-17121** atau email di **alfathnoor11@gmail.com**.";
         },
 
         async send() {

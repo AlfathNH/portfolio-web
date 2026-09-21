@@ -7,6 +7,8 @@ Compatible with both Vercel and GitHub Pages.
 import os
 import re
 import shutil
+import subprocess
+import time
 import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,17 +25,44 @@ os.makedirs(DOCS_DIR, exist_ok=True)
 
 # 2. Fetch rendered HTML from local Laravel dev server
 URL = "http://127.0.0.1:8000/"
-print(f"[EXPORT] Fetching HTML from {URL}...")
-req = urllib.request.Request(URL, headers={"User-Agent": "StaticExporter/1.0"})
-with urllib.request.urlopen(req) as resp:
-    html = resp.read().decode("utf-8")
+server_proc = None
 
-print(f"[EXPORT] Fetched {len(html)} bytes")
+def try_fetch(url):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "StaticExporter/1.0"})
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            return resp.read().decode("utf-8")
+    except Exception:
+        return None
+
+html = try_fetch(URL)
+
+if html is None:
+    print("[EXPORT] Local server not detected. Spawning temporary 'php artisan serve'...")
+    server_proc = subprocess.Popen(
+        ["php", "artisan", "serve", "--port=8000"],
+        cwd=BASE_DIR,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+    for _ in range(12):
+        time.sleep(0.5)
+        html = try_fetch(URL)
+        if html:
+            break
+
+if html is None:
+    if server_proc:
+        server_proc.terminate()
+    raise RuntimeError("[ERROR] Could not connect to Laravel server at http://127.0.0.1:8000/ to export static site.")
+
+if server_proc:
+    server_proc.terminate()
+    print("[EXPORT] Temporary PHP server closed.")
+
+print(f"[EXPORT] Successfully fetched {len(html)} bytes")
 
 # 3. Replace absolute local URLs with clean relative paths
-# e.g. http://127.0.0.1:8000/build/ -> ./build/
-# e.g. http://127.0.0.1:8000/images/ -> ./images/
-# e.g. /images/ -> ./images/
 html = re.sub(r'http://127\.0\.0\.1:8000/build/', './build/', html)
 html = re.sub(r'http://localhost:8000/build/', './build/', html)
 html = re.sub(r'http://127\.0\.0\.1:8000/images/', './images/', html)

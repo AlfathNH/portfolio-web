@@ -3,12 +3,71 @@
     <div class="section-inner">
 
         {{-- Header --}}
-        <div class="text-center mb-14 fade-up">
+        <div class="text-center mb-12 fade-up">
             <span class="section-label">Journey</span>
-            <h2 class="section-title">Career & Education<br><span class="text-gradient">Roadmap</span></h2>
+            <h2 class="section-title">Career &amp; Education<br><span class="text-gradient">Roadmap</span></h2>
             <div class="divider-glow mx-auto"></div>
-            <p class="section-desc mx-auto">My educational journey, achievements, and experience — the milestones that shaped who I am today.</p>
+            <p class="section-desc mx-auto">Educational milestones, competitive awards, student leadership, and real-world project experience.</p>
         </div>
+
+        {{-- Honors & Awards Spotlight (4 Major Championships) --}}
+        @php
+            $awards = config('portfolio.awards', []);
+        @endphp
+        @if(!empty($awards))
+        <div id="awards-spotlight" class="mb-14 fade-up">
+            <div class="flex items-center justify-between mb-6 pb-2 border-b border-light-border dark:border-dark-border">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 font-bold">
+                        🏆
+                    </span>
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                            Honors &amp; Championships
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Prestasi kejuaraan resmi skala Internasional, Nasional, dan Regional
+                        </p>
+                    </div>
+                </div>
+                <span class="hidden sm:inline-block text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/40 px-3 py-1 rounded-full">
+                    4 Verified Awards
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach($awards as $award)
+                <div class="card p-4 relative group hover:-translate-y-1 transition-all duration-300 border-light-border dark:border-dark-border hover:border-amber-400/60 dark:hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10">
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="text-2xl p-2 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20">
+                            {{ $award['icon'] ?? '🏆' }}
+                        </span>
+                        <span class="text-[11px] font-bold px-2 py-0.5 rounded-full {{ $award['rank'] === 'Juara 1' ? 'bg-amber-500 text-white shadow-xs' : ($award['rank'] === 'Juara 3' ? 'bg-cyan-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200') }}">
+                            {{ $award['badge'] }}
+                        </span>
+                    </div>
+
+                    <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-snug group-hover:text-primary-600 dark:group-hover:text-cyan-400 transition-colors">
+                        {{ $award['title'] }}
+                    </h4>
+                    
+                    <p class="text-xs font-medium text-slate-600 dark:text-slate-300 mt-1">
+                        {{ $award['competition'] }}
+                    </p>
+
+                    <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                        <span class="truncate max-w-[70%]" title="{{ $award['organizer'] }}">
+                            {{ $award['organizer'] }}
+                        </span>
+                        <span class="font-semibold text-slate-400 dark:text-slate-500">
+                            {{ $award['year'] }}
+                        </span>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
 
         {{-- Filter Tabs --}}
         @php
