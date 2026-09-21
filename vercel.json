@@ -1,0 +1,5 @@
+{
+  "buildCommand": "echo 'Using pre-built static docs' && exit 0",
+  "outputDirectory": "docs",
+  "cleanUrls": true
+}

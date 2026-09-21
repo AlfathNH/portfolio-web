@@ -73,23 +73,30 @@
                 this.success = null;
                 this.error = null;
                 try {
+                    const csrfEl = document.querySelector('meta[name=csrf-token]');
+                    const csrfToken = csrfEl ? csrfEl.content : '';
                     const res = await fetch('/contact', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content
+                            'X-CSRF-TOKEN': csrfToken
                         },
                         body: JSON.stringify({ name: this.name, email: this.email, message: this.message })
                     });
-                    const data = await res.json();
-                    if (data.success) {
-                        this.success = data.message;
-                        this.name = ''; this.email = ''; this.message = '';
-                    } else {
-                        this.error = data.message;
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.success) {
+                            this.success = data.message;
+                            this.name = ''; this.email = ''; this.message = '';
+                            return;
+                        }
                     }
+                    throw new Error('Static fallback');
                 } catch(e) {
-                    this.error = 'Failed to send. Please email directly at {{ config('portfolio.email') }}';
+                    const subject = encodeURIComponent('Pesan dari Portfolio: ' + this.name);
+                    const body = encodeURIComponent(`Nama: ${this.name}\nEmail: ${this.email}\n\nPesan:\n${this.message}`);
+                    window.location.href = `mailto:{{ config('portfolio.email') }}?subject=${subject}&body=${body}`;
+                    this.success = 'Membuka aplikasi email Anda... Atau kirim langsung ke {{ config('portfolio.email') }}';
                 } finally {
                     this.loading = false;
                 }
