@@ -75,4 +75,11 @@ with open(nojekyll_path, "w") as f:
     pass
 print(f"[EXPORT] Created .nojekyll for GitHub Pages compatibility")
 
-print("\n[SUCCESS] Static export completed successfully!")
+# 9. Sync to dist/ for Vercel
+DIST_DIR = os.path.join(BASE_DIR, "dist")
+if os.path.exists(DIST_DIR):
+    shutil.rmtree(DIST_DIR)
+shutil.copytree(DOCS_DIR, DIST_DIR)
+print(f"[EXPORT] Synced static build to {DIST_DIR} for Vercel")
+
+print("\n[SUCCESS] Static export to docs/ and dist/ completed successfully!")

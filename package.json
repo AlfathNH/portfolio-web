@@ -4,6 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
+        "build:static": "vite build && python scripts/export_static.py",
         "dev": "vite"
     },
     "devDependencies": {
