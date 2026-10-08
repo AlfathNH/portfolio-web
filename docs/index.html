@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="csrf-token" content="sraBsOX8omZeOzAWJqQ78Coc8C42642kHyLHoQsJ">
+    <meta name="csrf-token" content="DhkbrcAoJPnl794vhyFrYXOKe3OAHczZWJDAL4Vz">
     <meta name="theme-color" content="#0f172a">
 
     
@@ -28,13 +28,13 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo:ital,wght@0,400;0,700;0,900;1,900&family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
 
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     
-    <link rel="preload" as="style" href="./build/assets/app-CVqkj5rp.css" /><link rel="modulepreload" as="script" href="./build/assets/app-BImxSIyO.js" /><link rel="stylesheet" href="./build/assets/app-CVqkj5rp.css" /><script type="module" src="./build/assets/app-BImxSIyO.js"></script>
+    <link rel="preload" as="style" href="./build/assets/app-DF_UCxga.css" /><link rel="modulepreload" as="script" href="./build/assets/app-BImxSIyO.js" /><link rel="stylesheet" href="./build/assets/app-DF_UCxga.css" /><script type="module" src="./build/assets/app-BImxSIyO.js"></script>
     
     <script>
         window.__portfolioRoles = ["UI\/UX Designer","Web Developer","Laravel Developer","Python \u0026 AI Vision","Workflow Automation (n8n)"];
@@ -62,6 +62,26 @@
 </head>
 
 <body x-data>
+
+    
+    <div id="p5-marquee-banner" aria-hidden="true">
+        <div class="p5-marquee-content">
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>PHANTOM THIEVES OF TECH</span>
+            <span>/// SYSTEM ONLINE: STATUS LEVEL 99 ///</span>
+            <span>ALFATH NOORISLAMI HERAWANSYAH</span>
+            <span>★ ALL-OUT ATTACK ACTIVATED ★</span>
+            <span>DEVELOPER &amp; UI/UX SPECIALIST</span>
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>POLSUB INFORMATION SYSTEMS</span>
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>PHANTOM THIEVES OF TECH</span>
+            <span>/// SYSTEM ONLINE: STATUS LEVEL 99 ///</span>
+            <span>ALFATH NOORISLAMI HERAWANSYAH</span>
+            <span>★ ALL-OUT ATTACK ACTIVATED ★</span>
+            <span>DEVELOPER &amp; UI/UX SPECIALIST</span>
+        </div>
+    </div>
 
     
     <header class="sticky top-2 sm:top-3 z-50 px-3 sm:px-6 w-full max-w-6xl mx-auto transition-all duration-300" x-data>
@@ -294,38 +314,54 @@
 
         
         <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
-            <div class="relative w-64 sm:w-72 lg:w-80 aspect-square flex items-center justify-center">
+            <div id="hero-avatar-container" class="relative w-64 sm:w-72 lg:w-80 aspect-square flex items-center justify-center">
 
                 
-                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary-600 via-cyan-400 to-indigo-600 p-[3px] shadow-glow-md animate-spin-slow opacity-90">
+                <div class="p5-avatar-backdrop-red absolute -inset-3 sm:-inset-5 bg-[#e60012] -rotate-6 border-4 border-black shadow-[10px_10px_0px_#000] z-0 hidden"></div>
+                <div class="p5-avatar-backdrop-black absolute -inset-1.5 sm:-inset-2.5 bg-black rotate-2 border-2 border-white z-0 hidden"></div>
+
+                
+                <div class="normal-glow-ring absolute inset-0 rounded-full bg-gradient-to-tr from-primary-600 via-cyan-400 to-indigo-600 p-[3px] shadow-glow-md animate-spin-slow opacity-90">
                     <div class="w-full h-full rounded-full bg-light-bg dark:bg-dark-bg"></div>
                 </div>
 
                 
-                <div class="absolute inset-4 rounded-full bg-gradient-to-br from-primary-500/30 to-cyan-500/20 blur-xl"></div>
+                <div class="normal-glow-halo absolute inset-4 rounded-full bg-gradient-to-br from-primary-500/30 to-cyan-500/20 blur-xl"></div>
 
                 
-                <div class="relative w-[86%] h-[86%] rounded-full overflow-hidden border-4 border-white dark:border-[#0d1527] shadow-2xl z-10">
+                <div id="hero-avatar-photo" class="relative w-[86%] h-[86%] rounded-full overflow-hidden border-4 border-white dark:border-[#0d1527] shadow-2xl z-10 transition-all duration-300">
                     <img src="./images/profile-almamater.jpg"
                          alt="Alfath Noorislami Herawansyah"
                          class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                          loading="eager">
+
+                    
+                    <div class="p5-photo-vignette absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 pointer-events-none hidden"></div>
+                    <div class="p5-photo-bottom-red absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#e60012]/60 to-transparent pointer-events-none hidden"></div>
+
+                    
+                    <div class="p5-stamp-lv absolute top-2.5 right-2.5 bg-[#fbe500] text-black font-extrabold text-xs px-2.5 py-0.5 rotate-12 border-2 border-black shadow-[3px_3px_0_#000] uppercase tracking-wider hidden">
+                        LV. 99 MASTER
+                    </div>
+                    <div class="p5-stamp-arcana absolute bottom-2.5 left-2.5 bg-black text-white text-[10px] font-extrabold px-2.5 py-0.5 -rotate-2 border-2 border-[#e60012] uppercase tracking-wider hidden">
+                        <span class="text-[#e60012]">ARCANA:</span> FOOL
+                    </div>
                 </div>
 
                 
-                <div class="absolute -top-2 -left-2 sm:-left-4 glass-pill px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 0.5s;">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-slate-100">Full-Stack &amp; AI</span>
+                <div class="avatar-chip-1 absolute -top-2 -left-2 sm:-left-4 glass-pill px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 0.5s;">
+                    <span class="chip-ping w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span class="chip-text text-xs font-bold text-slate-800 dark:text-slate-100">Full-Stack &amp; AI</span>
                 </div>
 
                 
-                <div class="absolute -bottom-2 -right-2 sm:-right-4 glass-pill px-3.5 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 1.8s;">
-                    <span class="text-sm">🏛️</span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-slate-100">POLSUB IT</span>
+                <div class="avatar-chip-2 absolute -bottom-2 -right-2 sm:-right-4 glass-pill px-3.5 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 1.8s;">
+                    <span class="chip-icon text-sm">🏛️</span>
+                    <span class="chip-text text-xs font-bold text-slate-800 dark:text-slate-100">POLSUB IT</span>
                 </div>
 
                 
-                <div class="absolute bottom-4 left-6 w-6 h-6 rounded-full bg-emerald-500 border-[3px] border-white dark:border-dark-bg shadow-md z-20 flex items-center justify-center" title="Active & Ready">
+                <div class="avatar-active-dot absolute bottom-4 left-6 w-6 h-6 rounded-full bg-emerald-500 border-[3px] border-white dark:border-dark-bg shadow-md z-20 flex items-center justify-center" title="Active & Ready">
                     <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                 </div>
 

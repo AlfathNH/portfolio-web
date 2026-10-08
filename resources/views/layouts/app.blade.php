@@ -25,10 +25,10 @@
     <meta name="twitter:description" content="{{ config('portfolio.tagline') }}">
     <meta name="twitter:image" content="{{ config('portfolio.avatar_url') }}">
 
-    {{-- Google Fonts: Inter & JetBrains Mono --}}
+    {{-- Google Fonts: Inter, JetBrains Mono, and Persona 5 Fonts (Anton, Space Grotesk, Chivo) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo:ital,wght@0,400;0,700;0,900;1,900&family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
 
     {{-- Devicon CDN --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -63,6 +63,26 @@
 </head>
 
 <body x-data>
+
+    {{-- ★ PERSONA 5 TOP WARNING TAPE (Only visible when p5-theme active) ★ --}}
+    <div id="p5-marquee-banner" aria-hidden="true">
+        <div class="p5-marquee-content">
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>PHANTOM THIEVES OF TECH</span>
+            <span>/// SYSTEM ONLINE: STATUS LEVEL 99 ///</span>
+            <span>ALFATH NOORISLAMI HERAWANSYAH</span>
+            <span>★ ALL-OUT ATTACK ACTIVATED ★</span>
+            <span>DEVELOPER &amp; UI/UX SPECIALIST</span>
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>POLSUB INFORMATION SYSTEMS</span>
+            <span>★ TAKE YOUR HEART ★</span>
+            <span>PHANTOM THIEVES OF TECH</span>
+            <span>/// SYSTEM ONLINE: STATUS LEVEL 99 ///</span>
+            <span>ALFATH NOORISLAMI HERAWANSYAH</span>
+            <span>★ ALL-OUT ATTACK ACTIVATED ★</span>
+            <span>DEVELOPER &amp; UI/UX SPECIALIST</span>
+        </div>
+    </div>
 
     {{-- ── Navbar ── --}}
     @include('sections.navbar')

@@ -88,38 +88,54 @@
 
         {{-- Right: Visual Avatar Showcase with Rotating Ambient Ring (5 cols = ~38.2%) --}}
         <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
-            <div class="relative w-64 sm:w-72 lg:w-80 aspect-square flex items-center justify-center">
+            <div id="hero-avatar-container" class="relative w-64 sm:w-72 lg:w-80 aspect-square flex items-center justify-center">
 
-                {{-- Rotating Specular Glow Ring --}}
-                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary-600 via-cyan-400 to-indigo-600 p-[3px] shadow-glow-md animate-spin-slow opacity-90">
+                {{-- Persona 5 Slanted Cutout Backdrops (Only visible in P5 mode) --}}
+                <div class="p5-avatar-backdrop-red absolute -inset-3 sm:-inset-5 bg-[#e60012] -rotate-6 border-4 border-black shadow-[10px_10px_0px_#000] z-0 hidden"></div>
+                <div class="p5-avatar-backdrop-black absolute -inset-1.5 sm:-inset-2.5 bg-black rotate-2 border-2 border-white z-0 hidden"></div>
+
+                {{-- Rotating Specular Glow Ring (Normal mode) --}}
+                <div class="normal-glow-ring absolute inset-0 rounded-full bg-gradient-to-tr from-primary-600 via-cyan-400 to-indigo-600 p-[3px] shadow-glow-md animate-spin-slow opacity-90">
                     <div class="w-full h-full rounded-full bg-light-bg dark:bg-dark-bg"></div>
                 </div>
 
-                {{-- Inner Glow Halo --}}
-                <div class="absolute inset-4 rounded-full bg-gradient-to-br from-primary-500/30 to-cyan-500/20 blur-xl"></div>
+                {{-- Inner Glow Halo (Normal mode) --}}
+                <div class="normal-glow-halo absolute inset-4 rounded-full bg-gradient-to-br from-primary-500/30 to-cyan-500/20 blur-xl"></div>
 
                 {{-- Real Avatar Photo (Almamater BEM) --}}
-                <div class="relative w-[86%] h-[86%] rounded-full overflow-hidden border-4 border-white dark:border-[#0d1527] shadow-2xl z-10">
+                <div id="hero-avatar-photo" class="relative w-[86%] h-[86%] rounded-full overflow-hidden border-4 border-white dark:border-[#0d1527] shadow-2xl z-10 transition-all duration-300">
                     <img src="{{ asset('images/profile-almamater.jpg') }}"
                          alt="{{ config('portfolio.name') }}"
                          class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                          loading="eager">
+
+                    {{-- Persona 5 Vignette Overlays (Only visible in P5 mode) --}}
+                    <div class="p5-photo-vignette absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 pointer-events-none hidden"></div>
+                    <div class="p5-photo-bottom-red absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#e60012]/60 to-transparent pointer-events-none hidden"></div>
+
+                    {{-- Persona 5 Stamps inside Photo --}}
+                    <div class="p5-stamp-lv absolute top-2.5 right-2.5 bg-[#fbe500] text-black font-extrabold text-xs px-2.5 py-0.5 rotate-12 border-2 border-black shadow-[3px_3px_0_#000] uppercase tracking-wider hidden">
+                        LV. 99 MASTER
+                    </div>
+                    <div class="p5-stamp-arcana absolute bottom-2.5 left-2.5 bg-black text-white text-[10px] font-extrabold px-2.5 py-0.5 -rotate-2 border-2 border-[#e60012] uppercase tracking-wider hidden">
+                        <span class="text-[#e60012]">ARCANA:</span> FOOL
+                    </div>
                 </div>
 
                 {{-- Floating Micro-chip 1 (Top-Left) --}}
-                <div class="absolute -top-2 -left-2 sm:-left-4 glass-pill px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 0.5s;">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-slate-100">Full-Stack &amp; AI</span>
+                <div class="avatar-chip-1 absolute -top-2 -left-2 sm:-left-4 glass-pill px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 0.5s;">
+                    <span class="chip-ping w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span class="chip-text text-xs font-bold text-slate-800 dark:text-slate-100">Full-Stack &amp; AI</span>
                 </div>
 
                 {{-- Floating Micro-chip 2 (Bottom-Right) --}}
-                <div class="absolute -bottom-2 -right-2 sm:-right-4 glass-pill px-3.5 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 1.8s;">
-                    <span class="text-sm">🏛️</span>
-                    <span class="text-xs font-bold text-slate-800 dark:text-slate-100">POLSUB IT</span>
+                <div class="avatar-chip-2 absolute -bottom-2 -right-2 sm:-right-4 glass-pill px-3.5 py-1.5 rounded-xl shadow-lg flex items-center gap-2 z-20 animate-float" style="animation-delay: 1.8s;">
+                    <span class="chip-icon text-sm">🏛️</span>
+                    <span class="chip-text text-xs font-bold text-slate-800 dark:text-slate-100">POLSUB IT</span>
                 </div>
 
-                {{-- Verified Active Dot --}}
-                <div class="absolute bottom-4 left-6 w-6 h-6 rounded-full bg-emerald-500 border-[3px] border-white dark:border-dark-bg shadow-md z-20 flex items-center justify-center" title="Active & Ready">
+                {{-- Verified Active Dot (Normal mode) --}}
+                <div class="avatar-active-dot absolute bottom-4 left-6 w-6 h-6 rounded-full bg-emerald-500 border-[3px] border-white dark:border-dark-bg shadow-md z-20 flex items-center justify-center" title="Active & Ready">
                     <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                 </div>
 
