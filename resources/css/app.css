@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ─── Tailwind v4 Theme Configuration (Midnight Synthetics & Golden Scale) ─── */
+/* â”€â”€â”€ Tailwind v4 Theme Configuration (Midnight Synthetics & Golden Scale) â”€â”€â”€ */
 @theme {
     /* Font Families */
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -76,7 +76,7 @@
     }
 }
 
-/* ─── Base Styles ─── */
+/* â”€â”€â”€ Base Styles â”€â”€â”€ */
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -135,23 +135,23 @@ body::after {
     background: radial-gradient(circle, rgba(37, 99, 235, 0.22) 0%, rgba(6, 182, 212, 0.14) 45%, transparent 75%);
 }
 
-/* ─── Golden Ratio Typography Scale ─── */
+/* â”€â”€â”€ Golden Ratio Typography Scale â”€â”€â”€ */
 .text-display {
-    font-size: clamp(2.1rem, 5.2vw, 4.236rem); /* Golden scale φ^3 relative to 16px */
+    font-size: clamp(2.1rem, 5.2vw, 4.236rem); /* Golden scale Ï†^3 relative to 16px */
     line-height: 1.08;
     letter-spacing: -0.035em;
     font-weight: 900;
 }
 
 .text-golden-h2 {
-    font-size: clamp(1.618rem, 3.8vw, 2.618rem); /* Golden scale φ^2 */
+    font-size: clamp(1.618rem, 3.8vw, 2.618rem); /* Golden scale Ï†^2 */
     line-height: 1.18;
     letter-spacing: -0.025em;
     font-weight: 800;
 }
 
 .text-golden-h3 {
-    font-size: clamp(1.15rem, 2.4vw, 1.618rem); /* Golden scale φ^1 */
+    font-size: clamp(1.15rem, 2.4vw, 1.618rem); /* Golden scale Ï†^1 */
     line-height: 1.35;
     letter-spacing: -0.015em;
     font-weight: 700;
@@ -163,7 +163,7 @@ body::after {
     letter-spacing: -0.005em;
 }
 
-/* ─── Golden Ratio & Fibonacci Layout Components ─── */
+/* â”€â”€â”€ Golden Ratio & Fibonacci Layout Components â”€â”€â”€ */
 .section-inner {
     max-width: 1180px;
     margin: 0 auto;
@@ -225,7 +225,7 @@ body::after {
     box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
 }
 
-/* ─── Components Layer ─── */
+/* â”€â”€â”€ Components Layer â”€â”€â”€ */
 @layer components {
     .glass-pill {
         background: rgba(255, 255, 255, 0.85);
@@ -287,7 +287,7 @@ body::after {
         transform: translateY(-3px);
     }
 
-    /* ─── Buttons & Touch Targets (Mobile-First >= 44px) ─── */
+    /* â”€â”€â”€ Buttons & Touch Targets (Mobile-First >= 44px) â”€â”€â”€ */
     .btn-primary {
         display: inline-flex;
         align-items: center;
@@ -381,7 +381,7 @@ body::after {
     background: rgba(6, 182, 212, 0.1);
 }
 
-/* ─── Tag Badges ─── */
+/* â”€â”€â”€ Tag Badges â”€â”€â”€ */
 .tag {
     display: inline-flex;
     align-items: center;
@@ -408,7 +408,7 @@ body::after {
 .dark .tag-purple { background: rgba(168,85,247,0.14); color: #d8b4fe; border-color: rgba(168,85,247,0.28); }
 .dark .tag-orange { background: rgba(249,115,22,0.14); color: #fdba74; border-color: rgba(249,115,22,0.28); }
 
-/* ─── Hero Section Visuals ─── */
+/* â”€â”€â”€ Hero Section Visuals â”€â”€â”€ */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -455,7 +455,7 @@ body::after {
     color: #38bdf8;
 }
 
-/* ─── Text Gradients ─── */
+/* â”€â”€â”€ Text Gradients â”€â”€â”€ */
 .text-gradient {
     background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
     -webkit-background-clip: text;
@@ -469,7 +469,7 @@ body::after {
     background-clip: text;
 }
 
-/* ─── Stats Card ─── */
+/* â”€â”€â”€ Stats Card â”€â”€â”€ */
 .stat-card {
     background: white;
     border: 1px solid var(--color-light-border);
@@ -492,7 +492,7 @@ body::after {
     box-shadow: var(--shadow-card-hover);
 }
 
-/* ─── Skills ─── */
+/* â”€â”€â”€ Skills â”€â”€â”€ */
 .skill-badge {
     display: flex;
     flex-direction: column;
@@ -540,7 +540,7 @@ body::after {
     width: 0%;
 }
 
-/* ─── Contact Card ─── */
+/* â”€â”€â”€ Contact Card â”€â”€â”€ */
 .contact-card {
     display: flex;
     flex-direction: column;
@@ -569,7 +569,7 @@ body::after {
     box-shadow: var(--shadow-card-hover);
 }
 
-/* ─── Chatbot Bubbles ─── */
+/* â”€â”€â”€ Chatbot Bubbles â”€â”€â”€ */
 .chat-bubble-user {
     margin-left: auto;
     max-width: 82%;
@@ -601,14 +601,14 @@ body::after {
 }
 }
 
-/* ─── Mobile Form Fix (Font size >= 16px to prevent iOS zoom) ─── */
+/* â”€â”€â”€ Mobile Form Fix (Font size >= 16px to prevent iOS zoom) â”€â”€â”€ */
 @media (max-width: 768px) {
     input, textarea, select {
         font-size: 16px !important;
     }
 }
 
-/* ─── Animation Triggers ─── */
+/* â”€â”€â”€ Animation Triggers â”€â”€â”€ */
 .fade-up {
     opacity: 0;
     transform: translateY(22px);
@@ -620,7 +620,7 @@ body::after {
     transform: translateY(0);
 }
 
-/* ─── Scrollbar ─── */
+/* â”€â”€â”€ Scrollbar â”€â”€â”€ */
 .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: #cbd5e1 transparent;
@@ -630,7 +630,7 @@ body::after {
     scrollbar-color: #334155 transparent;
 }
 
-/* ─── Accessibility: Reduced Motion ─── */
+/* â”€â”€â”€ Accessibility: Reduced Motion â”€â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
     .fade-up, .animate-float, .animate-blink, .animate-blink-cursor, .animate-pulse-soft, .animate-spin-slow {
         animation: none !important;
@@ -644,43 +644,28 @@ body::after {
     }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   ★ PERSONA 5 EASTER EGG THEME ★
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   â˜… PERSONA 5 EASTER EGG THEME â˜…
    Triggered when user types "PERSONA 5" in the AI chatbot.
    Toggle class `.p5-theme` on <body> to activate.
-   ═══════════════════════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── P5 Fonts loaded at top of file (Bebas Neue + Rajdhani) ── */
-
-/* ── Activation Overlay Transition ── */
+/* â”€â”€ P5 Keyframes â”€â”€ */
 @keyframes p5-wipe-in {
-    0%   { clip-path: inset(0 100% 0 0); opacity: 1; }
-    100% { clip-path: inset(0 0% 0 0); opacity: 1; }
+    0%   { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0% 0 0); }
 }
 @keyframes p5-flash {
     0%, 100% { opacity: 0; }
-    10%, 90%  { opacity: 1; }
-    50%       { opacity: 0.6; }
+    15%, 85%  { opacity: 1; }
+    50%       { opacity: 0.7; }
 }
 @keyframes p5-slide-up {
-    from { transform: translateY(30px); opacity: 0; }
+    from { transform: translateY(40px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
 }
-@keyframes p5-rotate-in {
-    from { transform: rotate(-8deg) scale(0.85); opacity: 0; }
-    to   { transform: rotate(0deg) scale(1);    opacity: 1; }
-}
-@keyframes p5-cursor-blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-}
-@keyframes p5-card-hover {
-    0%   { transform: skewX(-2deg) translateY(0); }
-    50%  { transform: skewX(-2deg) translateY(-4px); }
-    100% { transform: skewX(-2deg) translateY(0); }
-}
 
-/* ── P5 Activation Splash Screen ── */
+/* â”€â”€ P5 Splash Screen â”€â”€ */
 #p5-splash {
     position: fixed;
     inset: 0;
@@ -692,11 +677,10 @@ body::after {
     flex-direction: column;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s;
 }
 #p5-splash.active {
     pointer-events: all;
-    animation: p5-flash 1.2s ease-in-out forwards;
+    animation: p5-flash 1.4s ease-in-out forwards;
 }
 #p5-splash-text {
     font-family: 'Bebas Neue', sans-serif;
@@ -710,7 +694,7 @@ body::after {
 #p5-splash-sub {
     font-family: 'Rajdhani', sans-serif;
     font-size: clamp(1rem, 3vw, 1.5rem);
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     letter-spacing: 0.4em;
     text-transform: uppercase;
     margin-top: 0.5rem;
@@ -720,44 +704,37 @@ body::after {
     position: fixed;
     inset: 0;
     z-index: 9998;
-    background: #000000;
+    background: #000;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.4s;
 }
 #p5-splash-mask.active {
-    animation: p5-wipe-in 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation: p5-wipe-in 0.45s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 
-/* ── P5 THEME: Body Override ── */
-body.p5-theme {
-    background: #0a0a0a !important;
-    font-family: 'Rajdhani', 'Inter', sans-serif !important;
-}
-
-/* ── P5 Theme: Persistent Toggle Button ── */
+/* â”€â”€ P5 Toggle Button â”€â”€ */
 #p5-toggle-btn {
     display: none;
     position: fixed;
-    bottom: 6rem;
+    bottom: 6.5rem;
     right: 1.5rem;
     z-index: 9000;
     background: #ff0000;
     color: #fff;
-    border: none;
+    border: 3px solid #000;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 0 0 3px #000, 0 0 20px rgba(255,0,0,0.5);
+    box-shadow: 3px 3px 0 #000, 0 0 20px rgba(255,0,0,0.5);
     transition: transform 0.2s, box-shadow 0.2s;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
 }
 #p5-toggle-btn:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 0 3px #000, 0 0 35px rgba(255,0,0,0.8);
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 5px 5px 0 #000, 0 0 35px rgba(255,0,0,0.8);
 }
 #p5-toggle-btn.visible {
     display: flex;
@@ -765,238 +742,21 @@ body.p5-theme {
     justify-content: center;
 }
 
-/* ── P5 Theme: Navbar ── */
-body.p5-theme #navbar {
-    background: #111111 !important;
-    border-bottom: 3px solid #ff0000 !important;
-    box-shadow: 0 4px 20px rgba(255,0,0,0.3) !important;
-}
-body.p5-theme #navbar a,
-body.p5-theme #navbar button {
-    color: #ffffff !important;
-    font-family: 'Rajdhani', sans-serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-}
-body.p5-theme #navbar a:hover {
-    color: #ff0000 !important;
-    text-shadow: 0 0 10px rgba(255,0,0,0.6) !important;
-}
-
-/* ── P5 Theme: Hero Section ── */
-body.p5-theme #hero,
-body.p5-theme section:first-of-type {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%) !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-body.p5-theme #hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 60%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,0,0,0.06), transparent);
-    transform: skewX(-15deg);
-    pointer-events: none;
-}
-
-/* ── P5 Theme: Headings ── */
-body.p5-theme h1,
-body.p5-theme h2,
-body.p5-theme h3 {
-    font-family: 'Bebas Neue', 'Rajdhani', sans-serif !important;
-    letter-spacing: 0.05em !important;
-    color: #ffffff !important;
-}
-body.p5-theme h1 {
-    text-shadow: 3px 3px 0 #ff0000, 6px 6px 0 rgba(0,0,0,0.5) !important;
-}
-body.p5-theme h2 {
-    text-shadow: 2px 2px 0 #ff0000 !important;
-    position: relative !important;
-}
-body.p5-theme h2::after {
-    content: '';
-    display: block;
-    width: 3rem;
-    height: 4px;
-    background: #ff0000;
-    margin-top: 0.5rem;
-    transform: skewX(-10deg);
-}
-
-/* ── P5 Theme: Section BG ── */
-body.p5-theme section,
-body.p5-theme main > * {
-    background-color: #0a0a0a !important;
-    color: #e0e0e0 !important;
-}
-body.p5-theme p,
-body.p5-theme span:not(.p5-exclude),
-body.p5-theme li {
-    color: #cccccc !important;
-}
-
-/* ── P5 Theme: Cards / Project Cards ── */
-body.p5-theme .project-card,
-body.p5-theme [class*="card"],
-body.p5-theme [class*="bg-white"],
-body.p5-theme [class*="bg-gray"],
-body.p5-theme [class*="bg-slate"] {
-    background: #111111 !important;
-    border: 2px solid #333333 !important;
-    border-left: 4px solid #ff0000 !important;
-    transform: skewX(-1deg) !important;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s !important;
-    color: #e0e0e0 !important;
-}
-body.p5-theme .project-card:hover,
-body.p5-theme [class*="card"]:hover {
-    border-color: #ff0000 !important;
-    border-left-color: #ff0000 !important;
-    box-shadow: -4px 0 30px rgba(255,0,0,0.4), 0 10px 30px rgba(0,0,0,0.5) !important;
-    transform: skewX(-1deg) translateY(-3px) !important;
-}
-
-/* ── P5 Theme: Buttons ── */
-body.p5-theme button:not(#p5-toggle-btn):not(#chatbot-toggle):not([x-on\:click]),
-body.p5-theme a.btn,
-body.p5-theme [class*="rounded-full"][class*="bg-"] {
-    background: #ff0000 !important;
-    color: #ffffff !important;
-    border: 2px solid #000 !important;
-    font-family: 'Rajdhani', sans-serif !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    box-shadow: 3px 3px 0 #000 !important;
-    transform: skewX(-5deg) !important;
-    transition: transform 0.15s, box-shadow 0.15s !important;
-    border-radius: 2px !important;
-}
-body.p5-theme button:not(#p5-toggle-btn):hover {
-    transform: skewX(-5deg) translate(-2px, -2px) !important;
-    box-shadow: 5px 5px 0 #000 !important;
-}
-
-/* ── P5 Theme: Links ── */
-body.p5-theme a:not(#navbar a):not([class*="btn"]) {
-    color: #ff4444 !important;
-    transition: color 0.15s, text-shadow 0.15s !important;
-}
-body.p5-theme a:hover {
-    color: #ff0000 !important;
-    text-shadow: 0 0 8px rgba(255,0,0,0.6) !important;
-}
-
-/* ── P5 Theme: Inputs ── */
-body.p5-theme input,
-body.p5-theme textarea {
-    background: #1a1a1a !important;
-    border: 2px solid #333 !important;
-    color: #fff !important;
-    border-radius: 2px !important;
-    font-family: 'Rajdhani', sans-serif !important;
-}
-body.p5-theme input:focus,
-body.p5-theme textarea:focus {
-    border-color: #ff0000 !important;
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(255,0,0,0.25) !important;
-}
-
-/* ── P5 Theme: Section Dividers ── */
-body.p5-theme hr {
-    border-color: #ff0000 !important;
-    height: 2px !important;
-}
-
-/* ── P5 Theme: Footer ── */
-body.p5-theme footer {
-    background: #050505 !important;
-    border-top: 3px solid #ff0000 !important;
-    color: #aaa !important;
-}
-
-/* ── P5 Theme: Chatbot ── */
-body.p5-theme #chatbot-panel {
-    background: #111111 !important;
-    border: 2px solid #ff0000 !important;
-    box-shadow: -6px 0 30px rgba(255,0,0,0.3) !important;
-}
-body.p5-theme #chatbot-panel [class*="bg-indigo"],
-body.p5-theme #chatbot-panel [class*="bg-blue"] {
-    background: #cc0000 !important;
-}
-body.p5-theme .scrollbar-thin {
-    scrollbar-color: #ff0000 #1a1a1a !important;
-}
-
-/* ── P5 Theme: Skill Bars ── */
-body.p5-theme .skill-fill {
-    background: linear-gradient(90deg, #cc0000, #ff0000, #ff4444) !important;
-    box-shadow: 0 0 10px rgba(255,0,0,0.5) !important;
-}
-
-/* ── P5 Theme: Tags / Badges ── */
-body.p5-theme [class*="text-indigo"],
-body.p5-theme [class*="text-blue"],
-body.p5-theme [class*="text-violet"],
-body.p5-theme [class*="text-cyan"] {
-    color: #ff4444 !important;
-}
-body.p5-theme [class*="bg-indigo"],
-body.p5-theme [class*="bg-blue"] {
-    background: rgba(255,0,0,0.15) !important;
-}
-
-/* ── P5 Theme: Decorative diagonal stripe ── */
-body.p5-theme::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 6px;
-    height: 100vh;
-    background: repeating-linear-gradient(
-        180deg,
-        #ff0000 0px,
-        #ff0000 20px,
-        #000000 20px,
-        #000000 40px
-    );
-    pointer-events: none;
-    z-index: 8000;
-}
-
-/* ── P5 Theme: Section accent line ── */
-body.p5-theme section::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #ff0000, transparent);
-    margin-bottom: 1rem;
-}
-
-/* ── P5 Theme: Notification Toast ── */
+/* â”€â”€ P5 Notification Toast â”€â”€ */
 #p5-notification {
     position: fixed;
     top: 1.5rem;
     left: 50%;
-    transform: translateX(-50%) translateY(-5rem);
+    transform: translateX(-50%) translateY(-6rem);
     z-index: 9990;
     background: #ff0000;
     color: #fff;
-    padding: 0.75rem 2rem;
+    padding: 0.65rem 1.75rem;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.2em;
+    font-size: 1rem;
+    letter-spacing: 0.25em;
     box-shadow: 4px 4px 0 #000;
-    border-left: 6px solid #000;
+    border-left: 5px solid #000;
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
     white-space: nowrap;
@@ -1004,4 +764,367 @@ body.p5-theme section::before {
 #p5-notification.show {
     transform: translateX(-50%) translateY(0);
 }
+
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   P5 ACTIVE THEME STYLES
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+/* â”€â”€ Global body reset â”€â”€ */
+body.p5-theme {
+    background: #0a0a0a !important;
+    font-family: 'Rajdhani', 'Inter', sans-serif !important;
+    color: #e0e0e0 !important;
+}
+
+/* Kill default body pseudo-elements (grid dots, ambient glow) */
+body.p5-theme::before,
+body.p5-theme::after {
+    display: none !important;
+}
+
+/* P5 red stripe on the right edge */
+body.p5-theme #p5-stripe {
+    display: block;
+}
+#p5-stripe {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        180deg,
+        #ff0000 0px, #ff0000 18px,
+        #000 18px, #000 36px
+    );
+    pointer-events: none;
+    z-index: 8000;
+}
+
+/* â”€â”€ Navbar â”€â”€ */
+body.p5-theme #navbar {
+    background: #111111 !important;
+    border-bottom: 3px solid #ff0000 !important;
+    box-shadow: 0 4px 20px rgba(255,0,0,0.25) !important;
+    backdrop-filter: none !important;
+}
+body.p5-theme #navbar a {
+    color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+}
+body.p5-theme #navbar a:hover {
+    color: #ff0000 !important;
+    text-shadow: 0 0 8px rgba(255,0,0,0.5) !important;
+}
+
+/* â”€â”€ Navbar GET IN TOUCH button â”€â”€ */
+body.p5-theme #navbar .btn-primary,
+body.p5-theme #navbar a.btn-primary {
+    background: #ff0000 !important;
+    background-image: none !important;
+    border: 2px solid #000 !important;
+    box-shadow: 3px 3px 0 #000 !important;
+    border-radius: 2px !important;
+    transform: skewX(-5deg) !important;
+    color: #fff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+}
+body.p5-theme #navbar .btn-primary:hover,
+body.p5-theme #navbar a.btn-primary:hover {
+    transform: skewX(-5deg) translate(-2px,-2px) !important;
+    box-shadow: 5px 5px 0 #000 !important;
+}
+
+/* â”€â”€ All sections background â”€â”€ */
+body.p5-theme section,
+body.p5-theme main > div,
+body.p5-theme footer {
+    background-color: #0a0a0a !important;
+}
+
+/* â”€â”€ Hero section special gradient â”€â”€ */
+body.p5-theme #hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180,0,0,0.35) 0%, #0a0a0a 70%) !important;
+}
+
+/* â”€â”€ Headings â”€â”€ */
+body.p5-theme h1 {
+    font-family: 'Bebas Neue', sans-serif !important;
+    letter-spacing: 0.04em !important;
+    color: #ffffff !important;
+    text-shadow: 3px 3px 0 #ff0000 !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+body.p5-theme h2 {
+    font-family: 'Bebas Neue', sans-serif !important;
+    letter-spacing: 0.04em !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 0 #ff0000 !important;
+}
+body.p5-theme h3,
+body.p5-theme h4 {
+    font-family: 'Rajdhani', sans-serif !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Red underline accent for section h2 */
+body.p5-theme .section-title::after,
+body.p5-theme h2::after {
+    content: '' !important;
+    display: block !important;
+    width: 2.5rem !important;
+    height: 4px !important;
+    background: #ff0000 !important;
+    margin-top: 0.4rem !important;
+    transform: skewX(-10deg) !important;
+}
+
+/* â”€â”€ Text gradient override (name "Alfath Noorislami") â”€â”€ */
+body.p5-theme .text-gradient {
+    background: linear-gradient(135deg, #ff0000 0%, #ff6666 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* â”€â”€ General text â”€â”€ */
+body.p5-theme p,
+body.p5-theme li,
+body.p5-theme span {
+    color: #cccccc !important;
+}
+body.p5-theme .text-slate-500,
+body.p5-theme .text-slate-400,
+body.p5-theme .section-desc {
+    color: #999999 !important;
+}
+
+/* â”€â”€ Section label â”€â”€ */
+body.p5-theme .section-label {
+    color: #ff4444 !important;
+    border-color: rgba(255,0,0,0.3) !important;
+}
+
+/* â”€â”€ Divider glow â†’ red â”€â”€ */
+body.p5-theme .divider-glow {
+    background: linear-gradient(90deg, #ff0000, #ff6666) !important;
+    box-shadow: 0 0 12px rgba(255,0,0,0.5) !important;
+}
+
+/* â”€â”€ Hero badge (OPEN TO WORK) â”€â”€ */
+body.p5-theme .hero-badge {
+    background: rgba(255,0,0,0.12) !important;
+    border-color: rgba(255,0,0,0.4) !important;
+    color: #ff6666 !important;
+    box-shadow: 0 0 15px rgba(255,0,0,0.15) !important;
+}
+body.p5-theme .hero-badge::before {
+    background: #ff0000 !important;
+    box-shadow: 0 0 6px #ff0000 !important;
+}
+
+/* â”€â”€ Buttons: Primary (Explore Projects, Get In Touch) â”€â”€ */
+body.p5-theme .btn-primary,
+body.p5-theme a.btn-primary {
+    background: #ff0000 !important;
+    background-image: none !important;
+    border: 2px solid #000 !important;
+    box-shadow: 3px 3px 0 #000 !important;
+    border-radius: 2px !important;
+    transform: skewX(-5deg) !important;
+    color: #fff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+}
+body.p5-theme .btn-primary:hover,
+body.p5-theme a.btn-primary:hover {
+    transform: skewX(-5deg) translate(-2px,-2px) !important;
+    box-shadow: 5px 5px 0 #000 !important;
+    background: #cc0000 !important;
+}
+
+/* â”€â”€ Buttons: Secondary â”€â”€ */
+body.p5-theme .btn-secondary,
+body.p5-theme a.btn-secondary {
+    background: #111111 !important;
+    border: 2px solid #ff0000 !important;
+    color: #ff4444 !important;
+    box-shadow: 3px 3px 0 #000 !important;
+    border-radius: 2px !important;
+    transform: skewX(-5deg) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+body.p5-theme .btn-secondary:hover,
+body.p5-theme a.btn-secondary:hover {
+    background: rgba(255,0,0,0.1) !important;
+    transform: skewX(-5deg) translate(-2px,-2px) !important;
+    box-shadow: 5px 5px 0 #000 !important;
+}
+
+/* â”€â”€ Typed cursor â”€â”€ */
+body.p5-theme .typed-cursor {
+    color: #ff0000 !important;
+}
+
+/* â”€â”€ Bento / Project / General Cards â”€â”€ */
+body.p5-theme .card,
+body.p5-theme .bento-hero-card,
+body.p5-theme .project-card,
+body.p5-theme .stat-card,
+body.p5-theme .skill-badge,
+body.p5-theme .contact-card {
+    background: #111111 !important;
+    border-color: #333333 !important;
+    border-left: 3px solid #ff0000 !important;
+    box-shadow: none !important;
+    color: #e0e0e0 !important;
+    transform: none !important; /* no skew on cards â€” avoid distorting images */
+}
+body.p5-theme .card:hover,
+body.p5-theme .bento-hero-card:hover,
+body.p5-theme .project-card:hover,
+body.p5-theme .stat-card:hover,
+body.p5-theme .skill-badge:hover,
+body.p5-theme .contact-card:hover {
+    border-color: #ff0000 !important;
+    border-left-color: #ff0000 !important;
+    box-shadow: -4px 0 20px rgba(255,0,0,0.3), 0 8px 20px rgba(0,0,0,0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* â”€â”€ Bento hero card gradient background â”€â”€ */
+body.p5-theme .bento-hero-card {
+    background: linear-gradient(135deg, #110000 0%, #1a0000 100%) !important;
+}
+
+/* â”€â”€ Tag Badges â†’ all become red-tinted â”€â”€ */
+body.p5-theme .tag,
+body.p5-theme .tag-blue,
+body.p5-theme .tag-pink,
+body.p5-theme .tag-green,
+body.p5-theme .tag-cyan,
+body.p5-theme .tag-purple,
+body.p5-theme .tag-orange {
+    background: rgba(255,0,0,0.12) !important;
+    color: #ff6666 !important;
+    border-color: rgba(255,0,0,0.3) !important;
+}
+
+/* â”€â”€ Skill bars â”€â”€ */
+body.p5-theme .skill-fill {
+    background: linear-gradient(90deg, #cc0000, #ff0000, #ff4444) !important;
+    box-shadow: 0 0 8px rgba(255,0,0,0.4) !important;
+}
+body.p5-theme .skill-bar {
+    background: rgba(255,0,0,0.1) !important;
+}
+
+/* â”€â”€ Timeline / Journey â”€â”€ */
+body.p5-theme [class*="border-primary"],
+body.p5-theme [class*="border-blue"],
+body.p5-theme [class*="border-indigo"] {
+    border-color: #ff0000 !important;
+}
+body.p5-theme [class*="bg-primary"],
+body.p5-theme [class*="bg-blue-"],
+body.p5-theme [class*="bg-indigo-"] {
+    background-color: rgba(255,0,0,0.15) !important;
+}
+body.p5-theme [class*="text-primary"],
+body.p5-theme [class*="text-blue-"],
+body.p5-theme [class*="text-indigo-"],
+body.p5-theme [class*="text-cyan-"],
+body.p5-theme [class*="text-violet-"] {
+    color: #ff4444 !important;
+}
+
+/* â”€â”€ Chatbot toggle button glow â”€â”€ */
+body.p5-theme #chatbot-toggle-btn > div,
+body.p5-theme button[title*="chat"] > div[class*="animate-ping"] {
+    background: rgba(255,0,0,0.3) !important;
+}
+
+/* â”€â”€ Chatbot panel â”€â”€ */
+body.p5-theme [x-show*="chatbot"] > div,
+body.p5-theme .fixed.bottom-6.right-6 > div[x-show] {
+    background: #111111 !important;
+    border: 2px solid #ff0000 !important;
+    box-shadow: -4px 0 30px rgba(255,0,0,0.25) !important;
+}
+
+/* â”€â”€ Chatbot header â”€â”€ */
+body.p5-theme .bg-gradient-to-r.from-primary-600 {
+    background: linear-gradient(90deg, #cc0000, #ff0000) !important;
+}
+
+/* â”€â”€ Chat bubbles â”€â”€ */
+body.p5-theme .chat-bubble-user {
+    background: linear-gradient(135deg, #cc0000, #ff0000) !important;
+    box-shadow: 0 2px 8px rgba(255,0,0,0.3) !important;
+}
+body.p5-theme .chat-bubble-ai {
+    background: #1a1a1a !important;
+    border-color: #333333 !important;
+    color: #e0e0e0 !important;
+}
+
+/* â”€â”€ Inputs â”€â”€ */
+body.p5-theme input,
+body.p5-theme textarea {
+    background: #1a1a1a !important;
+    border-color: #333333 !important;
+    color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+body.p5-theme input:focus,
+body.p5-theme textarea:focus {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 0 3px rgba(255,0,0,0.2) !important;
+    outline: none !important;
+}
+body.p5-theme input::placeholder,
+body.p5-theme textarea::placeholder {
+    color: #666666 !important;
+}
+
+/* â”€â”€ Footer â”€â”€ */
+body.p5-theme footer {
+    border-top: 3px solid #ff0000 !important;
+    background: #050505 !important;
+}
+body.p5-theme footer * {
+    color: #888888 !important;
+}
+body.p5-theme footer a:hover {
+    color: #ff4444 !important;
+}
+
+/* â”€â”€ Scrollbar â”€â”€ */
+body.p5-theme .scrollbar-thin {
+    scrollbar-color: #ff0000 #1a1a1a !important;
+}
+
+/* â”€â”€ HR dividers â”€â”€ */
+body.p5-theme hr {
+    border-color: rgba(255,0,0,0.3) !important;
+}
+
+/* â”€â”€ Send button in chatbot â”€â”€ */
+body.p5-theme button[class*="bg-primary-6"] {
+    background: #ff0000 !important;
+    box-shadow: none !important;
+}
+
+
 

@@ -70,10 +70,13 @@
     </div>
     {{-- Wipe-in mask --}}
     <div id="p5-splash-mask" aria-hidden="true"></div>
+    {{-- Red/black stripe (visible only when p5-theme active) --}}
+    <div id="p5-stripe" aria-hidden="true"></div>
     {{-- Toggle button: appears after Easter Egg discovered --}}
     <button id="p5-toggle-btn" aria-label="Toggle Persona 5 Theme" title="Toggle Persona 5 Theme">★</button>
     {{-- Notification Toast --}}
     <div id="p5-notification" aria-live="polite" aria-atomic="true"></div>
 
 </body>
+
 </html>
