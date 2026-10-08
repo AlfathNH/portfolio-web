@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -642,3 +643,365 @@ body::after {
         width: var(--target-width, 70%) !important;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ★ PERSONA 5 EASTER EGG THEME ★
+   Triggered when user types "PERSONA 5" in the AI chatbot.
+   Toggle class `.p5-theme` on <body> to activate.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── P5 Fonts loaded at top of file (Bebas Neue + Rajdhani) ── */
+
+/* ── Activation Overlay Transition ── */
+@keyframes p5-wipe-in {
+    0%   { clip-path: inset(0 100% 0 0); opacity: 1; }
+    100% { clip-path: inset(0 0% 0 0); opacity: 1; }
+}
+@keyframes p5-flash {
+    0%, 100% { opacity: 0; }
+    10%, 90%  { opacity: 1; }
+    50%       { opacity: 0.6; }
+}
+@keyframes p5-slide-up {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes p5-rotate-in {
+    from { transform: rotate(-8deg) scale(0.85); opacity: 0; }
+    to   { transform: rotate(0deg) scale(1);    opacity: 1; }
+}
+@keyframes p5-cursor-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+@keyframes p5-card-hover {
+    0%   { transform: skewX(-2deg) translateY(0); }
+    50%  { transform: skewX(-2deg) translateY(-4px); }
+    100% { transform: skewX(-2deg) translateY(0); }
+}
+
+/* ── P5 Activation Splash Screen ── */
+#p5-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+#p5-splash.active {
+    pointer-events: all;
+    animation: p5-flash 1.2s ease-in-out forwards;
+}
+#p5-splash-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    text-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0,0,0,0.3);
+    animation: p5-slide-up 0.6s 0.3s both ease-out;
+    white-space: nowrap;
+}
+#p5-splash-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    animation: p5-slide-up 0.6s 0.5s both ease-out;
+}
+#p5-splash-mask {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background: #000000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+#p5-splash-mask.active {
+    animation: p5-wipe-in 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* ── P5 THEME: Body Override ── */
+body.p5-theme {
+    background: #0a0a0a !important;
+    font-family: 'Rajdhani', 'Inter', sans-serif !important;
+}
+
+/* ── P5 Theme: Persistent Toggle Button ── */
+#p5-toggle-btn {
+    display: none;
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    z-index: 9000;
+    background: #ff0000;
+    color: #fff;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px #000, 0 0 20px rgba(255,0,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+}
+#p5-toggle-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 0 3px #000, 0 0 35px rgba(255,0,0,0.8);
+}
+#p5-toggle-btn.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── P5 Theme: Navbar ── */
+body.p5-theme #navbar {
+    background: #111111 !important;
+    border-bottom: 3px solid #ff0000 !important;
+    box-shadow: 0 4px 20px rgba(255,0,0,0.3) !important;
+}
+body.p5-theme #navbar a,
+body.p5-theme #navbar button {
+    color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+}
+body.p5-theme #navbar a:hover {
+    color: #ff0000 !important;
+    text-shadow: 0 0 10px rgba(255,0,0,0.6) !important;
+}
+
+/* ── P5 Theme: Hero Section ── */
+body.p5-theme #hero,
+body.p5-theme section:first-of-type {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+body.p5-theme #hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,0,0,0.06), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+/* ── P5 Theme: Headings ── */
+body.p5-theme h1,
+body.p5-theme h2,
+body.p5-theme h3 {
+    font-family: 'Bebas Neue', 'Rajdhani', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    color: #ffffff !important;
+}
+body.p5-theme h1 {
+    text-shadow: 3px 3px 0 #ff0000, 6px 6px 0 rgba(0,0,0,0.5) !important;
+}
+body.p5-theme h2 {
+    text-shadow: 2px 2px 0 #ff0000 !important;
+    position: relative !important;
+}
+body.p5-theme h2::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 4px;
+    background: #ff0000;
+    margin-top: 0.5rem;
+    transform: skewX(-10deg);
+}
+
+/* ── P5 Theme: Section BG ── */
+body.p5-theme section,
+body.p5-theme main > * {
+    background-color: #0a0a0a !important;
+    color: #e0e0e0 !important;
+}
+body.p5-theme p,
+body.p5-theme span:not(.p5-exclude),
+body.p5-theme li {
+    color: #cccccc !important;
+}
+
+/* ── P5 Theme: Cards / Project Cards ── */
+body.p5-theme .project-card,
+body.p5-theme [class*="card"],
+body.p5-theme [class*="bg-white"],
+body.p5-theme [class*="bg-gray"],
+body.p5-theme [class*="bg-slate"] {
+    background: #111111 !important;
+    border: 2px solid #333333 !important;
+    border-left: 4px solid #ff0000 !important;
+    transform: skewX(-1deg) !important;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s !important;
+    color: #e0e0e0 !important;
+}
+body.p5-theme .project-card:hover,
+body.p5-theme [class*="card"]:hover {
+    border-color: #ff0000 !important;
+    border-left-color: #ff0000 !important;
+    box-shadow: -4px 0 30px rgba(255,0,0,0.4), 0 10px 30px rgba(0,0,0,0.5) !important;
+    transform: skewX(-1deg) translateY(-3px) !important;
+}
+
+/* ── P5 Theme: Buttons ── */
+body.p5-theme button:not(#p5-toggle-btn):not(#chatbot-toggle):not([x-on\:click]),
+body.p5-theme a.btn,
+body.p5-theme [class*="rounded-full"][class*="bg-"] {
+    background: #ff0000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000 !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    box-shadow: 3px 3px 0 #000 !important;
+    transform: skewX(-5deg) !important;
+    transition: transform 0.15s, box-shadow 0.15s !important;
+    border-radius: 2px !important;
+}
+body.p5-theme button:not(#p5-toggle-btn):hover {
+    transform: skewX(-5deg) translate(-2px, -2px) !important;
+    box-shadow: 5px 5px 0 #000 !important;
+}
+
+/* ── P5 Theme: Links ── */
+body.p5-theme a:not(#navbar a):not([class*="btn"]) {
+    color: #ff4444 !important;
+    transition: color 0.15s, text-shadow 0.15s !important;
+}
+body.p5-theme a:hover {
+    color: #ff0000 !important;
+    text-shadow: 0 0 8px rgba(255,0,0,0.6) !important;
+}
+
+/* ── P5 Theme: Inputs ── */
+body.p5-theme input,
+body.p5-theme textarea {
+    background: #1a1a1a !important;
+    border: 2px solid #333 !important;
+    color: #fff !important;
+    border-radius: 2px !important;
+    font-family: 'Rajdhani', sans-serif !important;
+}
+body.p5-theme input:focus,
+body.p5-theme textarea:focus {
+    border-color: #ff0000 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(255,0,0,0.25) !important;
+}
+
+/* ── P5 Theme: Section Dividers ── */
+body.p5-theme hr {
+    border-color: #ff0000 !important;
+    height: 2px !important;
+}
+
+/* ── P5 Theme: Footer ── */
+body.p5-theme footer {
+    background: #050505 !important;
+    border-top: 3px solid #ff0000 !important;
+    color: #aaa !important;
+}
+
+/* ── P5 Theme: Chatbot ── */
+body.p5-theme #chatbot-panel {
+    background: #111111 !important;
+    border: 2px solid #ff0000 !important;
+    box-shadow: -6px 0 30px rgba(255,0,0,0.3) !important;
+}
+body.p5-theme #chatbot-panel [class*="bg-indigo"],
+body.p5-theme #chatbot-panel [class*="bg-blue"] {
+    background: #cc0000 !important;
+}
+body.p5-theme .scrollbar-thin {
+    scrollbar-color: #ff0000 #1a1a1a !important;
+}
+
+/* ── P5 Theme: Skill Bars ── */
+body.p5-theme .skill-fill {
+    background: linear-gradient(90deg, #cc0000, #ff0000, #ff4444) !important;
+    box-shadow: 0 0 10px rgba(255,0,0,0.5) !important;
+}
+
+/* ── P5 Theme: Tags / Badges ── */
+body.p5-theme [class*="text-indigo"],
+body.p5-theme [class*="text-blue"],
+body.p5-theme [class*="text-violet"],
+body.p5-theme [class*="text-cyan"] {
+    color: #ff4444 !important;
+}
+body.p5-theme [class*="bg-indigo"],
+body.p5-theme [class*="bg-blue"] {
+    background: rgba(255,0,0,0.15) !important;
+}
+
+/* ── P5 Theme: Decorative diagonal stripe ── */
+body.p5-theme::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        180deg,
+        #ff0000 0px,
+        #ff0000 20px,
+        #000000 20px,
+        #000000 40px
+    );
+    pointer-events: none;
+    z-index: 8000;
+}
+
+/* ── P5 Theme: Section accent line ── */
+body.p5-theme section::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff0000, transparent);
+    margin-bottom: 1rem;
+}
+
+/* ── P5 Theme: Notification Toast ── */
+#p5-notification {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5rem);
+    z-index: 9990;
+    background: #ff0000;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    box-shadow: 4px 4px 0 #000;
+    border-left: 6px solid #000;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    white-space: nowrap;
+}
+#p5-notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+

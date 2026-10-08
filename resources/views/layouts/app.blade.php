@@ -62,5 +62,18 @@
     {{-- ── AI Chatbot Widget ── --}}
     @include('sections.chatbot')
 
+    {{-- ★ PERSONA 5 EASTER EGG ELEMENTS ★ --}}
+    {{-- Splash overlay: red flash when theme activates --}}
+    <div id="p5-splash" aria-hidden="true">
+        <div id="p5-splash-text">PERSONA 5</div>
+        <div id="p5-splash-sub">★ Take Your Heart ★</div>
+    </div>
+    {{-- Wipe-in mask --}}
+    <div id="p5-splash-mask" aria-hidden="true"></div>
+    {{-- Toggle button: appears after Easter Egg discovered --}}
+    <button id="p5-toggle-btn" aria-label="Toggle Persona 5 Theme" title="Toggle Persona 5 Theme">★</button>
+    {{-- Notification Toast --}}
+    <div id="p5-notification" aria-live="polite" aria-atomic="true"></div>
+
 </body>
 </html>

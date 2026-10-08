@@ -21,6 +21,101 @@ const ThemeManager = {
 ThemeManager.init();
 window.ThemeManager = ThemeManager;
 
+// ─── ★ Persona 5 Easter Egg Manager ★ ────────────────────────────────────────
+const Persona5 = {
+    STORAGE_KEY: 'p5_discovered',
+    THEME_KEY:   'p5_theme_active',
+
+    isDiscovered() {
+        return localStorage.getItem(this.STORAGE_KEY) === 'true';
+    },
+    isActive() {
+        return document.body.classList.contains('p5-theme');
+    },
+
+    // ── Show notification toast ──
+    notify(msg, duration = 3000) {
+        const el = document.getElementById('p5-notification');
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.add('show');
+        setTimeout(() => el.classList.remove('show'), duration);
+    },
+
+    // ── Play splash + activate theme ──
+    activate() {
+        // Mark as discovered
+        localStorage.setItem(this.STORAGE_KEY, 'true');
+        localStorage.setItem(this.THEME_KEY, 'true');
+
+        // Phase 1: Black wipe-in mask
+        const mask = document.getElementById('p5-splash-mask');
+        if (mask) {
+            mask.classList.add('active');
+            setTimeout(() => mask.classList.remove('active'), 600);
+        }
+
+        // Phase 2: Red flash splash (100ms after mask)
+        const splash = document.getElementById('p5-splash');
+        if (splash) {
+            setTimeout(() => {
+                splash.classList.add('active');
+                setTimeout(() => splash.classList.remove('active'), 1300);
+            }, 100);
+        }
+
+        // Phase 3: Apply theme class after flash
+        setTimeout(() => {
+            document.body.classList.add('p5-theme');
+            this._showToggleBtn();
+            this.notify('★ PERSONA 5 THEME ACTIVATED ★');
+        }, 800);
+    },
+
+    // ── Deactivate theme ──
+    deactivate() {
+        document.body.classList.remove('p5-theme');
+        localStorage.setItem(this.THEME_KEY, 'false');
+        this.notify('Theme reverted to normal.');
+    },
+
+    // ── Toggle ──
+    toggle() {
+        if (this.isActive()) {
+            this.deactivate();
+        } else {
+            document.body.classList.add('p5-theme');
+            localStorage.setItem(this.THEME_KEY, 'true');
+            this.notify('★ PERSONA 5 THEME ACTIVATED ★');
+        }
+    },
+
+    // ── Show the floating toggle button ──
+    _showToggleBtn() {
+        const btn = document.getElementById('p5-toggle-btn');
+        if (btn) btn.classList.add('visible');
+    },
+
+    // ── Initialize on page load ──
+    init() {
+        // Restore discovered state
+        if (this.isDiscovered()) {
+            this._showToggleBtn();
+        }
+        // Restore active theme state
+        if (localStorage.getItem(this.THEME_KEY) === 'true') {
+            document.body.classList.add('p5-theme');
+        }
+        // Wire toggle button
+        const btn = document.getElementById('p5-toggle-btn');
+        if (btn) {
+            btn.addEventListener('click', () => this.toggle());
+        }
+    },
+};
+Persona5.init();
+window.Persona5 = Persona5;
+
 // ─── Typed Text Animation ─────────────────────────────────────────────────────
 window.initTypedAnimation = function(elementId, texts, options = {}) {
     const el = document.getElementById(elementId);
@@ -137,6 +232,13 @@ document.addEventListener('alpine:init', () => {
 
         getSmartFallback(message) {
             const q = message.toLowerCase();
+
+            // ─── ★ PERSONA 5 EASTER EGG TRIGGER ★ ───
+            if (q.includes('persona 5') || q === 'persona5' || q.includes('persona five')) {
+                // Delay theme activation slightly so chatbot response appears first
+                setTimeout(() => window.Persona5.activate(), 600);
+                return "🃏 **EASTER EGG DISCOVERED!**\n\n*\"I am thou... thou art I...\"*\n\nTheme **PERSONA 5** telah diaktifkan! Portofolio ini sekarang memiliki jiwa Phantom Thieves.\n\n★ *Take Your Heart* ★\n\nKamu bisa menonaktifkan tema ini kapan saja dengan menekan tombol ★ di pojok kanan bawah.";
+            }
             if (q.includes('prestasi') || q.includes('kejuaraan') || q.includes('juara') || q.includes('lomba') || q.includes('menang') || q.includes('award') || q.includes('honor')) {
                 return "Berikut adalah 4 prestasi & kejuaraan resmi yang diraih Alfath:\n\n🥇 **Juara 1 International Short Film** — Kompetisi AI (HMJ MI Polnes Sambas)\n🥉 **Juara 3 UI/UX Design FUSE** — Politeknik Manufaktur Bandung (POLMAN)\n🎖️ **4th Runner Up (Juara Harapan 1) Short Movie** — The 7th WinAction (Univ Widyatama & LLDIKTI IV)\n🏅 **Juara Harapan 1 Videografi** — Kesejarahan Lokal (Dinas Pendidikan Kab. Subang)\n\nAnda dapat melihat kartu trofi selengkapnya di bagian Journey / Roadmap!";
             }
