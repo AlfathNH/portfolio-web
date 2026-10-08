@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="csrf-token" content="oCBMrii2GGU42VG8kZ7OLqgX7j08i2x8AM8crU7G">
+    <meta name="csrf-token" content="TcR0R1N9KRoKHp8ryho27p2OPzxqTuA7HliNjS7w">
     <meta name="theme-color" content="#0f172a">
 
     
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     
-    <link rel="preload" as="style" href="./build/assets/app-CrfG4g_U.css" /><link rel="modulepreload" as="script" href="./build/assets/app-D1BAy1xr.js" /><link rel="stylesheet" href="./build/assets/app-CrfG4g_U.css" /><script type="module" src="./build/assets/app-D1BAy1xr.js"></script>
+    <link rel="preload" as="style" href="./build/assets/app-CBMFGaSO.css" /><link rel="modulepreload" as="script" href="./build/assets/app-D1BAy1xr.js" /><link rel="stylesheet" href="./build/assets/app-CBMFGaSO.css" /><script type="module" src="./build/assets/app-D1BAy1xr.js"></script>
     
     <script>
         window.__portfolioRoles = ["UI\/UX Designer","Web Developer","Laravel Developer","Python \u0026 AI Vision","Workflow Automation (n8n)"];
@@ -2993,7 +2993,9 @@
         
         <div class="bg-gradient-to-r from-primary-600 to-indigo-600 p-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg">🤖</div>
+                <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-sm">
+                    <img src="./images/chatbot-avatar.png" alt="Alfath's AI Mascot" class="w-8 h-8 object-contain">
+                </div>
                 <div>
                     <div class="text-sm font-bold text-white">Alfath's AI Assistant</div>
                     <div class="text-xs text-white/70">Ask me anything about Alfath!</div>
@@ -3089,7 +3091,9 @@
         <div x-show="!$store.chatbot.open" class="absolute w-14 h-14 rounded-full bg-primary-600/30 animate-ping"></div>
 
         <template x-if="!$store.chatbot.open">
-            <span class="text-2xl relative z-10">🤖</span>
+            <span class="relative z-10 w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shadow">
+                <img src="./images/chatbot-avatar.png" alt="OwO" class="w-9 h-9 object-contain">
+            </span>
         </template>
         <template x-if="$store.chatbot.open">
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
