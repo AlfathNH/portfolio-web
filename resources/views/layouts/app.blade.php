@@ -43,6 +43,22 @@
             chatbotEnabled: {{ config('portfolio.chatbot_enabled') ? 'true' : 'false' }},
             github: '{{ config('portfolio.github') }}',
         };
+
+        // Theme & Easter Egg Reset: Enforce Night/Cerah on refresh & clear P5
+        (function() {
+            try {
+                localStorage.removeItem('p5_theme_active');
+                localStorage.removeItem('p5_discovered');
+                const saved = localStorage.getItem('portfolio_theme');
+                // Default to dark (Night mode) if unset; if 'light', use light (Cerah mode)
+                const isDark = saved ? (saved === 'dark') : true;
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {}
+        })();
     </script>
 </head>
 
@@ -70,9 +86,7 @@
     </div>
     {{-- Wipe-in mask --}}
     <div id="p5-splash-mask" aria-hidden="true"></div>
-    {{-- Red/black stripe (visible only when p5-theme active) --}}
-    <div id="p5-stripe" aria-hidden="true"></div>
-    {{-- Toggle button: appears after Easter Egg discovered --}}
+    {{-- Toggle button: appears after Easter Egg discovered in active session --}}
     <button id="p5-toggle-btn" aria-label="Toggle Persona 5 Theme" title="Toggle Persona 5 Theme">★</button>
     {{-- Notification Toast --}}
     <div id="p5-notification" aria-live="polite" aria-atomic="true"></div>

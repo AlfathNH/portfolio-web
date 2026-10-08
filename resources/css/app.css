@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=JetBrains+Mono:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@600;700&display=swap');
 @import "tailwindcss";
 
@@ -782,25 +782,7 @@ body.p5-theme::after {
     display: none !important;
 }
 
-/* P5 red stripe on the right edge */
-body.p5-theme #p5-stripe {
-    display: block;
-}
-#p5-stripe {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 7px;
-    height: 100vh;
-    background: repeating-linear-gradient(
-        180deg,
-        #ff0000 0px, #ff0000 18px,
-        #000 18px, #000 36px
-    );
-    pointer-events: none;
-    z-index: 8000;
-}
+
 
 /* â”€â”€ Navbar â”€â”€ */
 body.p5-theme #navbar {

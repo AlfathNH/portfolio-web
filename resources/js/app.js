@@ -2,12 +2,13 @@ import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
 
-// ─── Dark Mode Manager ───────────────────────────────────────────────────────
+// ─── Dark Mode Manager (Night & Cerah Mode) ──────────────────────────────────
 const ThemeManager = {
     init() {
         const saved = localStorage.getItem('portfolio_theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        this.apply(saved ? saved === 'dark' : prefersDark);
+        // Default to dark (Night mode) if unset; if 'light', use light (Cerah mode)
+        const isDark = saved ? (saved === 'dark') : true;
+        this.apply(isDark);
     },
     apply(dark) {
         document.documentElement.classList.toggle('dark', dark);
@@ -22,13 +23,9 @@ ThemeManager.init();
 window.ThemeManager = ThemeManager;
 
 // ─── ★ Persona 5 Easter Egg Manager ★ ────────────────────────────────────────
+// Persona 5 is STRICTLY an in-session Easter Egg: it NEVER persists on refresh!
+// Every refresh/page load immediately returns to normal mode (Night / Cerah).
 const Persona5 = {
-    STORAGE_KEY: 'p5_discovered',
-    THEME_KEY:   'p5_theme_active',
-
-    isDiscovered() {
-        return localStorage.getItem(this.STORAGE_KEY) === 'true';
-    },
     isActive() {
         return document.body.classList.contains('p5-theme');
     },
@@ -42,12 +39,8 @@ const Persona5 = {
         setTimeout(() => el.classList.remove('show'), duration);
     },
 
-    // ── Play splash + activate theme ──
+    // ── Play splash + activate theme for active session ──
     activate() {
-        // Mark as discovered
-        localStorage.setItem(this.STORAGE_KEY, 'true');
-        localStorage.setItem(this.THEME_KEY, 'true');
-
         // Phase 1: Black wipe-in mask
         const mask = document.getElementById('p5-splash-mask');
         if (mask) {
@@ -64,7 +57,7 @@ const Persona5 = {
             }, 100);
         }
 
-        // Phase 3: Apply theme class after flash
+        // Phase 3: Apply theme class after flash (no localStorage persistence)
         setTimeout(() => {
             document.body.classList.add('p5-theme');
             this._showToggleBtn();
@@ -75,17 +68,15 @@ const Persona5 = {
     // ── Deactivate theme ──
     deactivate() {
         document.body.classList.remove('p5-theme');
-        localStorage.setItem(this.THEME_KEY, 'false');
-        this.notify('Theme reverted to normal.');
+        this.notify('Tema kembali ke mode semula.');
     },
 
-    // ── Toggle ──
+    // ── Toggle during active session ──
     toggle() {
         if (this.isActive()) {
             this.deactivate();
         } else {
             document.body.classList.add('p5-theme');
-            localStorage.setItem(this.THEME_KEY, 'true');
             this.notify('★ PERSONA 5 THEME ACTIVATED ★');
         }
     },
@@ -96,16 +87,26 @@ const Persona5 = {
         if (btn) btn.classList.add('visible');
     },
 
-    // ── Initialize on page load ──
+    // ── Hide the floating toggle button ──
+    _hideToggleBtn() {
+        const btn = document.getElementById('p5-toggle-btn');
+        if (btn) btn.classList.remove('visible');
+    },
+
+    // ── Initialize on page load (ALWAYS reset to mode semula) ──
     init() {
-        // Restore discovered state
-        if (this.isDiscovered()) {
-            this._showToggleBtn();
-        }
-        // Restore active theme state
-        if (localStorage.getItem(this.THEME_KEY) === 'true') {
-            document.body.classList.add('p5-theme');
-        }
+        // Clear any leftover easter egg state from localStorage
+        try {
+            localStorage.removeItem('p5_theme_active');
+            localStorage.removeItem('p5_discovered');
+        } catch (e) {}
+
+        // Guarantee body starts in clean normal mode
+        document.body.classList.remove('p5-theme');
+
+        // Ensure floating toggle is hidden on load
+        this._hideToggleBtn();
+
         // Wire toggle button
         const btn = document.getElementById('p5-toggle-btn');
         if (btn) {
@@ -237,7 +238,7 @@ document.addEventListener('alpine:init', () => {
             if (q.includes('persona 5') || q === 'persona5' || q.includes('persona five')) {
                 // Delay theme activation slightly so chatbot response appears first
                 setTimeout(() => window.Persona5.activate(), 600);
-                return "🃏 **EASTER EGG DISCOVERED!**\n\n*\"I am thou... thou art I...\"*\n\nTheme **PERSONA 5** telah diaktifkan! Portofolio ini sekarang memiliki jiwa Phantom Thieves.\n\n★ *Take Your Heart* ★\n\nKamu bisa menonaktifkan tema ini kapan saja dengan menekan tombol ★ di pojok kanan bawah.";
+                return "🃏 **EASTER EGG DISCOVERED!**\n\n*\"I am thou... thou art I...\"*\n\nTheme **PERSONA 5** telah diaktifkan! Portofolio ini sekarang memiliki jiwa Phantom Thieves.\n\n★ *Take Your Heart* ★\n\nKamu bisa menonaktifkan tema ini kapan saja dengan tombol ★ di pojok kanan bawah, atau cukup **refresh halaman** untuk kembali ke mode semula (Night / Cerah).";
             }
             if (q.includes('prestasi') || q.includes('kejuaraan') || q.includes('juara') || q.includes('lomba') || q.includes('menang') || q.includes('award') || q.includes('honor')) {
                 return "Berikut adalah 4 prestasi & kejuaraan resmi yang diraih Alfath:\n\n🥇 **Juara 1 International Short Film** — Kompetisi AI (HMJ MI Polnes Sambas)\n🥉 **Juara 3 UI/UX Design FUSE** — Politeknik Manufaktur Bandung (POLMAN)\n🎖️ **4th Runner Up (Juara Harapan 1) Short Movie** — The 7th WinAction (Univ Widyatama & LLDIKTI IV)\n🏅 **Juara Harapan 1 Videografi** — Kesejarahan Lokal (Dinas Pendidikan Kab. Subang)\n\nAnda dapat melihat kartu trofi selengkapnya di bagian Journey / Roadmap!";

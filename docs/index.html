@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="csrf-token" content="Zkz7UCqrZun9mOBbhyrA4Op7ZqEtoOegYjUqcrjz">
+    <meta name="csrf-token" content="sraBsOX8omZeOzAWJqQ78Coc8C42642kHyLHoQsJ">
     <meta name="theme-color" content="#0f172a">
 
     
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     
-    <link rel="preload" as="style" href="./build/assets/app-BlAPTS5c.css" /><link rel="modulepreload" as="script" href="./build/assets/app-D1BAy1xr.js" /><link rel="stylesheet" href="./build/assets/app-BlAPTS5c.css" /><script type="module" src="./build/assets/app-D1BAy1xr.js"></script>
+    <link rel="preload" as="style" href="./build/assets/app-CVqkj5rp.css" /><link rel="modulepreload" as="script" href="./build/assets/app-BImxSIyO.js" /><link rel="stylesheet" href="./build/assets/app-CVqkj5rp.css" /><script type="module" src="./build/assets/app-BImxSIyO.js"></script>
     
     <script>
         window.__portfolioRoles = ["UI\/UX Designer","Web Developer","Laravel Developer","Python \u0026 AI Vision","Workflow Automation (n8n)"];
@@ -42,6 +42,22 @@
             chatbotEnabled: true,
             github: 'AlfathNH',
         };
+
+        // Theme & Easter Egg Reset: Enforce Night/Cerah on refresh & clear P5
+        (function() {
+            try {
+                localStorage.removeItem('p5_theme_active');
+                localStorage.removeItem('p5_discovered');
+                const saved = localStorage.getItem('portfolio_theme');
+                // Default to dark (Night mode) if unset; if 'light', use light (Cerah mode)
+                const isDark = saved ? (saved === 'dark') : true;
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (e) {}
+        })();
     </script>
 </head>
 
@@ -3112,8 +3128,6 @@
     </div>
     
     <div id="p5-splash-mask" aria-hidden="true"></div>
-    
-    <div id="p5-stripe" aria-hidden="true"></div>
     
     <button id="p5-toggle-btn" aria-label="Toggle Persona 5 Theme" title="Toggle Persona 5 Theme">★</button>
     
