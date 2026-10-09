@@ -813,12 +813,57 @@ body.p5-theme {
     background-image: radial-gradient(#262626 18%, transparent 20%), radial-gradient(#e60012 12%, transparent 16%) !important;
     background-size: 24px 24px, 48px 48px !important;
     background-position: 0 0, 12px 12px !important;
+    background-attachment: fixed !important;
     font-family: 'Chivo', 'Inter', sans-serif !important;
     color: #f5f5f5 !important;
 }
 body.p5-theme::before,
 body.p5-theme::after {
     display: none !important;
+}
+
+/* Ensure all main sections and wrappers have transparent backgrounds
+   so the comic halftone pattern flows unbroken across the entire portfolio */
+body.p5-theme main,
+body.p5-theme section,
+body.p5-theme #home,
+body.p5-theme #about,
+body.p5-theme #skills,
+body.p5-theme #projects,
+body.p5-theme #timeline,
+body.p5-theme #contact,
+body.p5-theme .section-inner,
+body.p5-theme [class*="bg-light-surface"],
+body.p5-theme [class*="dark:bg-dark-surface"],
+body.p5-theme [class*="bg-slate-50"],
+body.p5-theme [class*="dark:bg-[#090f1d]"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+}
+
+/* Hide hero blue/cyan ambient glow blobs */
+body.p5-theme #home > div.absolute.inset-0 {
+    display: none !important;
+}
+
+/* Override cyan/indigo glow divider lines to P5 iconic red */
+body.p5-theme .divider-glow {
+    background: linear-gradient(90deg, #e60012, #ff0018) !important;
+    box-shadow: 0 0 14px rgba(230, 0, 18, 0.75) !important;
+}
+body.p5-theme .h-px.w-8.bg-primary-500\/40,
+body.p5-theme .h-px.w-8 {
+    background-color: #e60012 !important;
+}
+
+/* Replace cyan/blue accent texts with P5 red */
+body.p5-theme [class*="text-cyan-"],
+body.p5-theme [class*="text-primary-"],
+body.p5-theme .dark\:text-cyan-400,
+body.p5-theme .dark\:text-primary-400 {
+    color: #e60012 !important;
 }
 
 /* ── Navbar ── */
@@ -1165,10 +1210,192 @@ body.p5-theme .chat-bubble-ai {
     border-radius: 0 !important;
 }
 
+/* ── Timeline Components ── */
+body.p5-theme #timeline .absolute.w-px {
+    background-color: #e60012 !important;
+    width: 3px !important;
+    box-shadow: 0 0 10px rgba(230, 0, 18, 0.6) !important;
+}
+
+body.p5-theme #timeline button {
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    transform: skew(-6deg) !important;
+    border-radius: 0 !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    transition: all 0.15s ease !important;
+}
+
+body.p5-theme #timeline button:hover,
+body.p5-theme #timeline button[class*="bg-primary-600"] {
+    background: #e60012 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    transform: skew(-6deg) scale(1.04) !important;
+}
+
+body.p5-theme #timeline .bg-white.dark\:bg-dark-card,
+body.p5-theme #timeline .dark\:bg-dark-card {
+    background: #0d0d0d !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 8px 8px 0px #e60012, 12px 12px 0px #000000 !important;
+    border-radius: 0px !important;
+    color: #f5f5f5 !important;
+    transition: all 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2) !important;
+}
+
+body.p5-theme #timeline .bg-white.dark\:bg-dark-card:hover,
+body.p5-theme #timeline .dark\:bg-dark-card:hover {
+    transform: translate(-3px, -3px) rotate(-0.5deg) !important;
+    box-shadow: 12px 12px 0px #e60012, 16px 16px 0px #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.p5-theme #timeline .w-5.h-5.rounded-full {
+    background: #e60012 !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0 10px #e60012 !important;
+    border-radius: 0 !important;
+    transform: rotate(45deg) !important;
+}
+
+body.p5-theme #timeline span[class*="text-primary-400"],
+body.p5-theme #timeline span[class*="text-primary-600"] {
+    background: #e60012 !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    transform: skew(-6deg) !important;
+    border: 1px solid #000000 !important;
+    box-shadow: 2px 2px 0px #000000 !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    letter-spacing: 0.05em !important;
+}
+
+body.p5-theme #awards-spotlight > div:first-child {
+    border-color: #e60012 !important;
+}
+
+body.p5-theme #awards-spotlight span[class*="text-amber-"] {
+    background: #e60012 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+    border-radius: 0 !important;
+    transform: skew(-6deg) !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    letter-spacing: 0.05em !important;
+}
+
+body.p5-theme #timeline .border-dashed {
+    background: #141414 !important;
+    border: 2px dashed #e60012 !important;
+    border-radius: 0 !important;
+}
+body.p5-theme #timeline .border-dashed p {
+    color: #fbe500 !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* ── Skills & Tech ── */
+body.p5-theme .skill-badge {
+    background: #141414 !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 0 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+}
+body.p5-theme .skill-badge:hover {
+    background: #000000 !important;
+    border-color: #e60012 !important;
+    transform: translateY(-3px) rotate(-1deg) !important;
+    box-shadow: 6px 6px 0px #e60012 !important;
+}
+body.p5-theme .skill-fill {
+    background: #e60012 !important;
+}
+
+/* ── Project Cards & Modals ── */
+body.p5-theme .card > div:last-child {
+    background: #141414 !important;
+    border-top: 2px solid #262626 !important;
+}
+body.p5-theme .card > div:last-child button {
+    color: #e60012 !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+}
+body.p5-theme .card > div:last-child button:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px #e60012 !important;
+}
+
+body.p5-theme .fixed.z-\[999\] > div {
+    background: #0d0d0d !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 10px 10px 0px #e60012, 16px 16px 0px #000000 !important;
+    border-radius: 0 !important;
+}
+
+/* ── About Section ── */
+body.p5-theme #about button {
+    border-radius: 0 !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    transform: skew(-6deg) !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 3px 3px 0px #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+body.p5-theme #about button[class*="bg-primary-600"],
+body.p5-theme #about button:hover {
+    background: #e60012 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+}
+body.p5-theme #about .bg-gradient-to-br.from-primary-600 {
+    background: #e60012 !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 8px 8px 0px #000000 !important;
+    border-radius: 0 !important;
+}
+body.p5-theme #about .aspect-\[4\/5\] {
+    border-radius: 0 !important;
+}
+body.p5-theme .stat-card .text-primary-600,
+body.p5-theme .stat-card .dark\:text-cyan-400 {
+    color: #fbe500 !important;
+    font-family: 'Anton', 'Impact', sans-serif !important;
+}
+
+/* ── Contact Form ── */
+body.p5-theme #contact input,
+body.p5-theme #contact textarea {
+    background: #000000 !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
+}
+body.p5-theme #contact input:focus,
+body.p5-theme #contact textarea:focus {
+    border-color: #e60012 !important;
+    box-shadow: 4px 4px 0px #e60012 !important;
+    outline: none !important;
+}
+
 /* ── Footer ── */
 body.p5-theme footer {
     border-top: 4px solid #e60012 !important;
-    background: #050505 !important;
+    background: transparent !important;
 }
 body.p5-theme footer a:hover {
     color: #e60012 !important;
